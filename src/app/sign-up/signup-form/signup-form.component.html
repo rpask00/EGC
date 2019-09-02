@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+  <mat-form-field class="example-full-width">
+    <input (keydown)='updateForm()' matInput formControlName='imie' placeholder="Imię">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input (keydown)='updateForm()' matInput formControlName='nazwisko' placeholder="Nazwisko">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input (keydown)='updateForm()' matInput formControlName='nick' placeholder="Nick">
+  </mat-form-field>
+</form>

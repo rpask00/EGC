@@ -1,0 +1,75 @@
+form {
+  width: 50%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column
+}
+
+.file::-webkit-file-upload-button {
+  padding: 10px;
+  background-color: #E91E63;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 300;
+  color: aliceblue;
+}
+
+.file {
+  color: whitesmoke;
+  text-align: center;
+  width: 90%;
+  padding: 5%;
+  background-color: gray;
+  outline: none;
+  margin: 20px 0 20px 0;
+}
+
+.file:hover {
+  cursor: pointer;
+}
+
+.file::-webkit-file-upload-button:hover {
+  cursor: pointer;
+}
+
+.dashboard {
+  display: flex;
+}
+
+.card-conatiner {
+  width: 40%;
+  margin: 5%;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.radio {
+  // padding: 10px;
+}
+
+.radio-btn {
+  padding: 10px;
+}
+
+.header-image {
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.1)
+  }
+}
+
+p {
+  word-break: break-all;
+}

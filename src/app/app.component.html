@@ -1,20 +1,39 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="bgImageBox" #bgImg>
+  <img src="https://lubiegrac.pl/files/news/full/tytul_GXylbJ.jpeg" alt="" class="bgImg">
+  <div #glass class="glass"></div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<mat-toolbar class='toolbar'>
+  <mat-card-title>E-ZSAT</mat-card-title>
+  <div class="link" #toolbar>
+    <a routerLinkActive="colorFull" routerLink='home' mat-button><i
+        class="icon-home"></i>{{width<=900? "" : " Strona głowna"}}</a>
+    <a routerLinkActive="colorFull" routerLink='news' mat-button> <i
+        class="icon-newspaper"></i>{{width<=900? "" : "  Aktualności"}}</a>
+    <!-- <a routerLinkActive="colorFull" routerLink='info' mat-button> <i
+        class="icon-info-circled"></i>{{width<=900? "" : "  Informacje"}}</a> -->
+    <a routerLinkActive="colorFull" routerLink='contact' mat-button> <i
+        class="icon-location"></i>{{width<=900? "" : "  Lokalizacja"}}</a>
+    <!-- <a routerLinkActive="colorFull" routerLink='schedule' mat-button> <i
+        class="icon-sticky-note-o"></i>{{width<=900? "" : "  Harmonogram"}}</a> -->
+    <a routerLinkActive="colorFull" routerLink='gallery' mat-button> <i
+        class="icon-picture"></i>{{width<=900? "" : "  Galeria"}}</a>
+  </div>
+</mat-toolbar>
 
+
+<main [@routeAnimations]="prepareRoute(outlet)" class="content">
+  <router-outlet #outlet="outlet"></router-outlet>
+</main>
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<mat-toolbar class='footer'>
+  <div #footer></div>
+  <a mat-button href="https://www.instagram.com/ezsatropczyce/">
+    <span class="instagram">
+      <span class="fa fa-instagram"></span>
+    </span></a>
+  <a mat-button href="https://www.facebook.com/ZSATeSportsLeague/"><i class="icon-facebook-squared"></i></a>
+  <a mat-button href="http://www.zsat-ropczyce.pl/"><i class="icon-graduation-cap"></i></a>
+  <a mat-button href="https://www.youtube.com/channel/UCodrNqOTvcsbBgQeFRreACw"><i class="icon-youtube-play"></i></a>
+</mat-toolbar>

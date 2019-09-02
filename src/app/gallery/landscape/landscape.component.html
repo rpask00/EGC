@@ -1,0 +1,10 @@
+<div class="container" *ngIf='imgArr | async as imgArr'>
+  <div @slidePhoto class="box" *ngFor='let img of imgArr' (click)='openDialog(img)'>
+    <div class="imgBox"><img [src]="img" alt=""></div>
+  </div>
+</div>
+
+
+<!-- <ng-template *ngIf='imgArr | async as imgArr'>
+  <img *ngFor='let img of imgArr' [src]="img" alt="">
+</ng-template> -->

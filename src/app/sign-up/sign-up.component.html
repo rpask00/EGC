@@ -1,0 +1,37 @@
+<div class="container">
+
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Gracz 1">
+      <div class="formBox">
+        <signup-form [index]='0' (sendForm)='getForm($event)'></signup-form>
+      </div>
+    </mat-tab>
+    <mat-tab label="Gracz 2">
+      <div class="formBox">
+        <signup-form [index]='1' (sendForm)='getForm($event)'></signup-form>
+      </div>
+    </mat-tab>
+    <mat-tab label="Gracz 3 ">
+      <div class="formBox">
+        <signup-form [index]='2' (sendForm)='getForm($event)'></signup-form>
+      </div>
+    </mat-tab>
+    <mat-tab label="Gracz 4">
+      <div class="formBox">
+        <signup-form [index]='3' (sendForm)='getForm($event)'></signup-form>
+      </div>
+    </mat-tab>
+    <mat-tab label="Gracz 5">
+      <div class="formBox">
+        <signup-form [index]='4' (sendForm)='getForm($event)'></signup-form>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+  <div class="team">
+    <p> Nazwa drużyny</p>
+    <input #team>
+  </div>
+  <div #teamName>esf</div>
+  <button color='primary' mat-raised-button>Zapisz</button>
+</div>

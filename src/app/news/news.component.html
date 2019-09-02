@@ -1,0 +1,42 @@
+<div class="box" *ngIf='news$ | async as news'>
+  <mat-card class="example-card" *ngIf='example'>
+    <mat-card-header>
+      <div mat-card-avatar class="header-image">
+        <img [src]="example.game" alt="">
+      </div>
+      <mat-card-title>{{example.title}}</mat-card-title>
+      <mat-card-subtitle>{{timeSrv.getDate(example.date)}}</mat-card-subtitle>
+    </mat-card-header>
+    <img *ngIf='example.image | async as img' mat-card-image [src]="img">
+    <mat-card-content>
+      <p>
+        {{example.desc}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <div class="smalCards">
+    <mat-card class="small-card" *ngFor='let new of news' (click)='changeExampleCard(new)'>
+      <mat-card-header>
+        <div mat-card-avatar class="header-image">
+          <img [src]="new.game" alt="">
+        </div>
+        <mat-card-title class='smTitle'>{{new.title}}</mat-card-title>
+        <mat-card-subtitle class='smDate'>{{timeSrv.getDate(new.date)}}</mat-card-subtitle>
+      </mat-card-header>
+      <div class="content-box-sm">
+        <div class="small-card-image">
+          <img *ngIf='new.image | async as img' [src]="img">
+        </div>
+        <p>
+          {{new.desc}}
+        </p>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<!-- <form [formGroup]="form">
+  <input formControlName='images' type="file" (change)="saveImagses($event.target.files)" multiple #input>
+  <input formControlName='title' type="text" #txt>
+  <button (click)='upload()'>Submit</button>
+</form> -->

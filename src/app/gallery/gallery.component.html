@@ -1,0 +1,16 @@
+<div class="container" *ngIf='labels$ | async as labels'>
+  <div class="card" *ngFor='let label of labels'>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{label.key}}</mat-card-title>
+        <mat-card-subtitle>{{label.quantity}} photos</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]='label.key.slice(0,2) == "CS" ? CSimg : LOLimg' alt="LOL">
+
+      <mat-card-actions>
+        <a mat-button [routerLink]='[ label.key]'>Open</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+</div>

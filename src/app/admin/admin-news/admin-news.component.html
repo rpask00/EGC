@@ -1,0 +1,40 @@
+<div class="dashboard" (submit)='save()'>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input matInput placeholder="Tytuł" formControlName='title'>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Opis" rows='7' formControlName='desc'></textarea>
+    </mat-form-field>
+
+
+    <mat-radio-group class='radio' formControlName='game' (change)='avatarImage()'>
+      <mat-radio-button class='radio-btn' checked value="cs">CS</mat-radio-button>
+      <mat-radio-button class='radio-btn' value="lol">LOL</mat-radio-button>
+    </mat-radio-group>
+
+    <input (change)='file($event)' class='file' type="file" formControlName='image'>
+    <button [disabled]='!form.valid' mat-raised-button>Dodaj</button>
+
+  </form>
+  <div class="card-conatiner" *ngIf='form'>
+
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image">
+          <img #avatar [src]="csUrl" alt="">
+        </div>
+        <mat-card-title>{{form.value.title}}</mat-card-title>
+        <mat-card-subtitle>{{timeSrv.getDate(today)}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image *ngIf='image' [src]="image" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          {{form.value.desc}}
+       
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

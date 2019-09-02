@@ -1,0 +1,51 @@
+agm-map {
+  height: 100%;
+}
+
+.map {
+  height: 70vh;
+  top: 10%;
+  position: absolute;
+  width: 72vw;
+  max-width: 1000px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.firstLine {
+  display: flex;
+  justify-content: space-between;
+
+  .upper {
+    width: 45%;
+  }
+}
+
+.lower {
+  width: 100%;
+
+}
+
+
+.form {
+  border-radius: 10px;
+  color: aliceblue;
+  background-color: #212121;
+  opacity: .9;
+  width: 70vw;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+  height: 70vh;
+  padding: 4vw 4vw 30px 4vw;
+
+  button {
+    position: relative;
+    left: 50%;
+    width: 40%;
+    transform: translateX(-50%);
+  }
+}
