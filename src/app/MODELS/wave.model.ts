@@ -12,6 +12,14 @@ export interface Color {
     a: number
 }
 
+export interface ColorRGB {
+    r: number,
+    g: number,
+    b: number,
+    a: number
+}
+
+
 export interface backGround{
     r:number,
     g:number,

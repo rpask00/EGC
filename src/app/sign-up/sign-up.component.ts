@@ -13,9 +13,7 @@ export class SignUPComponent implements OnInit {
   formValid: boolean = false;
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.teamName)
-  }
+  ngOnInit() {}
 
   getForm(e) {
     this.forms[e.index] = e.form;

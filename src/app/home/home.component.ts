@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild, NgZone, ViewContainerRef } from '@angular/core';
 import * as dat from 'dat.gui'
-import { Wave, Color, backGround } from '../MODELS/wave.model';
+import { Wave, Color, backGround, ColorRGB } from '../MODELS/wave.model';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,24 +13,24 @@ export class HomeComponent implements OnInit {
   amplidute: number = 0;
   gui;
   wave: Wave = {
-    y: innerHeight / 2 - 100,
+    y: 500,
     length: 100,
     amplitude: 100,
     frequency: 0.02,
   }
 
-  color: Color = {
-    h: 100,
-    s: 100,
-    l: 50,
-    a: 1
+  color: ColorRGB = {
+    r: 100,
+    g: 0,
+    b: 50,
+    a: 1,
   }
 
   backGround: backGround = {
     r: 0,
     g: 0,
     b: 0,
-    a: .04
+    a: 1
   }
 
   increment: number;
@@ -47,9 +47,9 @@ export class HomeComponent implements OnInit {
     waveFolder.open()
 
     const colorFolder = this.gui.addFolder('color')
-    colorFolder.add(this.color, 'h', 0, 255)
-    colorFolder.add(this.color, 's', 0, 100)
-    colorFolder.add(this.color, 'l', 0, 100)
+    colorFolder.add(this.color, 'r', 0, 255)
+    colorFolder.add(this.color, 'g', 0, 255)
+    colorFolder.add(this.color, 'b', 0, 255)
     colorFolder.add(this.color, 'a', 0, 1)
 
     colorFolder.open()
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
     bgcFolder.add(this.backGround, 'r', 0, 255)
     bgcFolder.add(this.backGround, 'g', 0, 255)
     bgcFolder.add(this.backGround, 'b', 0, 255)
-    bgcFolder.add(this.backGround, 'a', 0, 0.3)
+    bgcFolder.add(this.backGround, 'a', 0, 1)
 
     bgcFolder.open()
   }
@@ -68,11 +68,11 @@ export class HomeComponent implements OnInit {
     this.animate.call(this)
     // this.drawImage()
     addEventListener('resize', () => {
-      this.canvas.nativeElement.width = innerWidth;
-      this.canvas.nativeElement.height = innerHeight;
+      this.canvas.nativeElement.width = innerWidth * 2;
+      this.canvas.nativeElement.height = innerHeight * 2;
     })
-    this.canvas.nativeElement.width = innerWidth;
-    this.canvas.nativeElement.height = innerHeight;
+    this.canvas.nativeElement.width = innerWidth * 2;
+    this.canvas.nativeElement.height = innerHeight * 2;
   }
 
   wobble() {
@@ -83,11 +83,23 @@ export class HomeComponent implements OnInit {
       this.ctx.lineTo(i, this.wave.y + Math.sin(i / this.wave.length + this.increment) * this.wave.amplitude * Math.sin(this.increment))
     }
 
-    this.ctx.strokeStyle = `hsla(
-      ${this.color.h * Math.sin(this.increment)},
-      ${this.color.s}%,
-      ${this.color.l}%,
-      ${this.color.a})`
+    // this.ctx.strokeStyle = `hsla(
+    //   ${this.color.h * Math.sin(this.increment)},
+    //   ${this.color.s}%,
+    //   ${this.color.l}%,
+    //   ${this.color.a})`
+
+    this.ctx.strokeStyle = `rgb(
+        ${this.color.r * Math.sin(this.increment)},
+        ${this.color.g},
+        ${this.color.b},
+        ${this.color.a})`
+
+    this.ctx.fillStyle = `rgba(
+          ${this.backGround.r},
+          ${this.backGround.g},
+          ${this.backGround.b},
+          ${this.backGround.a * Math.abs(Math.sin(this.increment)) * .2 + 0.1})`
     this.ctx.stroke()
 
   }
@@ -95,7 +107,7 @@ export class HomeComponent implements OnInit {
   animate() {
     this.ctx = this.canvas.nativeElement.getContext('2d')
     // this.drawImage()
-    this.ctx.fillRect(0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height)
+    this.ctx.fillRect(0, 0, this.canvas.nativeElement.width + 200, this.canvas.nativeElement.height)
     this.ctx.fillStyle = `rgba(
       ${this.backGround.r},
       ${this.backGround.g},
