@@ -30,7 +30,7 @@
 
   <div class="team">
     <p> Nazwa drużyny</p>
-    <input #team>
+    <input (keyup)='getForm()' #team>
   </div>
-  <button color='primary' mat-raised-button>Zapisz</button>
+  <button [disabled]='!formValid' color='primary' (click)='sign_up()' mat-raised-button>Zapisz</button>
 </div>

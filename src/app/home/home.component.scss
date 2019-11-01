@@ -1,25 +1,25 @@
 canvas {
-  background-color: transparent;
-  position: absolute;
-  top:0;
-  left: -13%;
   z-index: -4;
-  transform: rotate(30deg);
+  transform-origin: center;
+  transform: rotate(10deg) scale(1.2);
+
 }
 
-.bgImageBox {
-  position: absolute;
+.toolbar {
+  position: fixed;
+}
+
+.canvas-box {
+  z-index: -4;
+  overflow: hidden;
   top: 0;
-  left: 0;
-  z-index: -3;
+  position: absolute;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
-  opacity: .4;
 }
 
-
 button {
+  min-width: 150px;
   width: 15vw;
   height: 8vh;
   background-color: transparent;
@@ -75,6 +75,16 @@ i:nth-child(3) {
 
 
 
+.buttons-and-arrows-box {
+  width: 100vw;
+  height: 100vh;
+}
+
+.sign-up-box{
+  height: 85vh;
+
+}
+
 @keyframes migawka {
   0% {
     opacity: .4;
@@ -82,5 +92,12 @@ i:nth-child(3) {
 
   100% {
     opacity: 1;
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
+  canvas {
+    display: none;
   }
 }

@@ -1,4 +1,5 @@
 <div class="bgImageBox" #bgImg>
+  <!-- <div class="inside"></div> -->
   <img src="../assets/TloStronyEGC.png" alt="" class="bgImg">
   <div #glass class="glass"></div>
 </div>
@@ -7,18 +8,22 @@
     <!-- <img mat-card-image src="../assets/espotgamesclub2ver1.png" alt=""> -->
   </mat-card-title>
   <div class="link" #toolbar>
-    <a routerLinkActive="colorFull" routerLink='home' mat-button><i
-        class="icon-home"></i>{{width<=900? "" : " Strona głowna"}}</a>
-    <a routerLinkActive="colorFull" routerLink='news' mat-button> <i
-        class="icon-newspaper"></i>{{width<=900? "" : "  Aktualności"}}</a>
+    <a routerLinkActive="colorFull" routerLink='home' mat-button>
+      <i class="icon-home"></i>{{width<=900? "" : " Strona głowna"}}
+    </a>
+    <a routerLinkActive="colorFull" routerLink='news' mat-button>
+      <i class="icon-newspaper"></i>{{width<=900? "" : "  Aktualności"}}
+    </a>
     <!-- <a routerLinkActive="colorFull" routerLink='info' mat-button> <i
         class="icon-info-circled"></i>{{width<=900? "" : "  Informacje"}}</a> -->
-    <a routerLinkActive="colorFull" routerLink='contact' mat-button> <i
-        class="icon-location"></i>{{width<=900? "" : "  Lokalizacja"}}</a>
+    <a routerLinkActive="colorFull" routerLink='contact' mat-button>
+      <i class="icon-location"></i>{{width<=900? "" : "  Lokalizacja"}}
+    </a>
     <!-- <a routerLinkActive="colorFull" routerLink='schedule' mat-button> <i
         class="icon-sticky-note-o"></i>{{width<=900? "" : "  Harmonogram"}}</a> -->
-    <a routerLinkActive="colorFull" routerLink='gallery' mat-button> <i
-        class="icon-picture"></i>{{width<=900? "" : "  Galeria"}}</a>
+    <a routerLinkActive="colorFull" routerLink='gallery' mat-button>
+      <i class="icon-picture"></i>{{width<=900? "" : "  Galeria"}}
+    </a>
   </div>
 </mat-toolbar>
 

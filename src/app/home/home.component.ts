@@ -9,20 +9,21 @@ import { Wave, Color, backGround, ColorRGB } from '../MODELS/wave.model';
 export class HomeComponent implements OnInit {
 
   @ViewChild('canvas', { read: ElementRef }) canvas: ElementRef<HTMLCanvasElement>;
+  @ViewChild('signupbox', { read: ElementRef }) signupbox: ElementRef
   private ctx: CanvasRenderingContext2D;
   amplidute: number = 0;
   gui;
   wave: Wave = {
-    y: 500,
+    y: 573,
     length: 100,
-    amplitude: 100,
+    amplitude: 27,
     frequency: 0.02,
   }
 
   color: ColorRGB = {
     r: 100,
     g: 0,
-    b: 50,
+    b: 255,
     a: 1,
   }
 
@@ -30,7 +31,7 @@ export class HomeComponent implements OnInit {
     r: 0,
     g: 0,
     b: 0,
-    a: 1
+    a: 0
   }
 
   increment: number;
@@ -68,11 +69,12 @@ export class HomeComponent implements OnInit {
     this.animate.call(this)
     // this.drawImage()
     addEventListener('resize', () => {
-      this.canvas.nativeElement.width = innerWidth * 2;
-      this.canvas.nativeElement.height = innerHeight * 2;
+      this.canvas.nativeElement.width = innerWidth + 400;
+      this.canvas.nativeElement.height = innerHeight;
     })
-    this.canvas.nativeElement.width = innerWidth * 2;
-    this.canvas.nativeElement.height = innerHeight * 2;
+    this.canvas.nativeElement.width = innerWidth;
+    this.canvas.nativeElement.height = innerHeight;
+
   }
 
   wobble() {
@@ -107,7 +109,7 @@ export class HomeComponent implements OnInit {
   animate() {
     this.ctx = this.canvas.nativeElement.getContext('2d')
     // this.drawImage()
-    this.ctx.fillRect(0, 0, this.canvas.nativeElement.width + 200, this.canvas.nativeElement.height)
+    this.ctx.fillRect(0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height)
     this.ctx.fillStyle = `rgba(
       ${this.backGround.r},
       ${this.backGround.g},
@@ -117,6 +119,10 @@ export class HomeComponent implements OnInit {
 
     const id = requestAnimationFrame(this.animate.bind(this));
     this.increment += this.wave.frequency;
+  }
+
+  scroll() {
+    this.signupbox.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }
 

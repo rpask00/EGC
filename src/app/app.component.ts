@@ -16,7 +16,6 @@ export class AppComponent implements OnInit, AfterViewChecked {
   @ViewChild('toolbar', { read: ElementRef }) toolbar: ElementRef
   @ViewChild('footer', { read: ElementRef }) footer: ElementRef
   @ViewChild('bgImg', { read: ElementRef }) bgImg: ElementRef
-  @ViewChild('glass', { read: ElementRef }) glass: ElementRef
 
   constructor() { }
   title = 'EZSAT';
@@ -25,14 +24,14 @@ export class AppComponent implements OnInit, AfterViewChecked {
   ngAfterViewChecked() {
     if (window.location.pathname === '/home') {
       (this.toolbar.nativeElement as HTMLElement).parentElement.style.backgroundColor = 'transparent';
-      (this.footer.nativeElement.parentElement as HTMLElement).classList.add('footerClr');
-      (this.bgImg.nativeElement as HTMLElement).style.opacity = '.5';
-      (this.glass.nativeElement as HTMLElement).style.opacity = '0';
+      (this.toolbar.nativeElement as HTMLElement).parentElement.style.position = 'fixed';
+      (this.footer.nativeElement.parentElement as HTMLElement).classList.add('footer-on-home');
+      (this.bgImg.nativeElement as HTMLElement).style.opacity = '.7';
     } else {
       (this.toolbar.nativeElement as HTMLElement).parentElement.style.backgroundColor = '#1A237E';
-      (this.footer.nativeElement.parentElement as HTMLElement).classList.remove('footerClr');
+      (this.toolbar.nativeElement as HTMLElement).parentElement.style.position = 'static';
+      (this.footer.nativeElement.parentElement as HTMLElement).classList.remove('footer-on-home');
       (this.bgImg.nativeElement as HTMLElement).style.opacity = '1';
-      (this.glass.nativeElement as HTMLElement).style.opacity = '.4';
     }
 
   }

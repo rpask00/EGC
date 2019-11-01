@@ -1,10 +1,22 @@
-<canvas #canvas></canvas>
+<div class="canvas-box">
+  <canvas #canvas></canvas>
+</div>
 <!-- <div class="bgImageBox">
   <img src="https://reportmyteam.net/wp-content/uploads/2017/02/maxresdefault-7.jpg" alt="" class="bgImg">
 </div> -->
-<div class="arrows">
-  <i class="icon-down-open arrow1"></i>
-  <i class="icon-down-open arrow2"></i>
-  <i class="icon-down-open arrow3"></i>
+
+<div class="container">
+  <div class="buttons-and-arrows-box">
+    <div class="arrows">
+      <i class="icon-down-open arrow1"></i>
+      <i class="icon-down-open arrow2"></i>
+      <i class="icon-down-open arrow3"></i>
+    </div>
+    <button (click)="scroll()">Zapisz się! </button>
+    <!-- <button [routerLink]='["/signup"]'>Zapisz się! </button> -->
+  </div>
+  <div class="sign-up-box" #signupbox>
+    <app-sign-up></app-sign-up>
+  </div>
+
 </div>
-<button  [routerLink]='["/signup"]' >Zapisz się! </button>
