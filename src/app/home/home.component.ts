@@ -36,33 +36,32 @@ export class HomeComponent implements OnInit {
 
   increment: number;
   constructor(private ngZone: NgZone) {
-    this.gui = new dat.GUI();
     this.increment = this.wave.frequency;
+    // this.gui = new dat.GUI();
+    // const waveFolder = this.gui.addFolder('wave')
+    // waveFolder.add(this.wave, 'y', 0, innerHeight)
+    // waveFolder.add(this.wave, 'length', -200, 200)
+    // waveFolder.add(this.wave, 'amplitude', -300, 300)
+    // waveFolder.add(this.wave, 'frequency', -0.01, 0.2)
 
-    const waveFolder = this.gui.addFolder('wave')
-    waveFolder.add(this.wave, 'y', 0, innerHeight)
-    waveFolder.add(this.wave, 'length', -200, 200)
-    waveFolder.add(this.wave, 'amplitude', -300, 300)
-    waveFolder.add(this.wave, 'frequency', -0.01, 0.2)
+    // waveFolder.open()
 
-    waveFolder.open()
+    // const colorFolder = this.gui.addFolder('color')
+    // colorFolder.add(this.color, 'r', 0, 255)
+    // colorFolder.add(this.color, 'g', 0, 255)
+    // colorFolder.add(this.color, 'b', 0, 255)
+    // colorFolder.add(this.color, 'a', 0, 1)
 
-    const colorFolder = this.gui.addFolder('color')
-    colorFolder.add(this.color, 'r', 0, 255)
-    colorFolder.add(this.color, 'g', 0, 255)
-    colorFolder.add(this.color, 'b', 0, 255)
-    colorFolder.add(this.color, 'a', 0, 1)
-
-    colorFolder.open()
+    // colorFolder.open()
 
 
-    const bgcFolder = this.gui.addFolder('background')
-    bgcFolder.add(this.backGround, 'r', 0, 255)
-    bgcFolder.add(this.backGround, 'g', 0, 255)
-    bgcFolder.add(this.backGround, 'b', 0, 255)
-    bgcFolder.add(this.backGround, 'a', 0, 1)
+    // const bgcFolder = this.gui.addFolder('background')
+    // bgcFolder.add(this.backGround, 'r', 0, 255)
+    // bgcFolder.add(this.backGround, 'g', 0, 255)
+    // bgcFolder.add(this.backGround, 'b', 0, 255)
+    // bgcFolder.add(this.backGround, 'a', 0, 1)
 
-    bgcFolder.open()
+    // bgcFolder.open()
   }
 
   ngOnInit() {

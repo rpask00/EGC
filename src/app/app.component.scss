@@ -8,7 +8,7 @@ button {
 .toolbar {
   background-color: #1A237E;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   transition: .9s;
 }
 
@@ -120,7 +120,7 @@ a:hover {
 
 
 @media only screen and (max-width: 900px) {
-  .bgImageBox {
-    img {}
+  .toolbar {
+    justify-content: center;
   }
 }

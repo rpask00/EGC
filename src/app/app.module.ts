@@ -26,15 +26,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SignUPComponent } from './sign-up/sign-up.component';
 import { SignupFormComponent } from './sign-up/signup-form/signup-form.component';
+import { SignupSuccedComponent } from './sign-up/signup-succed/signup-succed.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, data: { animation: 'home' }, pathMatch: 'full' },
+  { path: 'sign-up-succed', component: SignupSuccedComponent, pathMatch: 'full' },
+  { path: 'sign-up-succed/:team', component: SignupSuccedComponent, pathMatch: 'full' },
   { path: 'signup', component: SignUPComponent, data: { animation: 'signup' }, pathMatch: 'full' },
   { path: 'info', component: InfoComponent, data: { animation: 'info' }, pathMatch: 'full' },
   { path: 'contact', component: ContactComponent, data: { animation: 'contact' }, pathMatch: 'full' },
   { path: 'admin', component: AdminComponent, data: { animation: 'admin' }, pathMatch: 'full' },
   { path: 'news', component: NewsComponent, data: { animation: 'news' }, pathMatch: 'full' },
+  { path: 'about', component: AboutUsComponent, data: { animation: 'news' }, pathMatch: 'full' },
   { path: 'schedule', component: ScheduleComponent, data: { animation: 'schedule' }, pathMatch: 'full' },
   { path: 'gallery', component: GalleryComponent, data: { animation: 'gallery' }, pathMatch: 'full' },
   { path: 'gallery/:key', component: LandscapeComponent, data: { animation: 'landscape' }, pathMatch: 'full' },
@@ -59,6 +64,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     SignUPComponent,
     SignupFormComponent,
+    SignupSuccedComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,

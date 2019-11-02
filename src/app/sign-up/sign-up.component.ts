@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, ViewContainerRef } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { TeamsService } from '../SERVICES/teams.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,7 +15,8 @@ export class SignUPComponent implements OnInit {
   forms: FormGroup[] = [];
   formValid: boolean = false;
   constructor(
-    private db: AngularFireDatabase
+    private teamSv: TeamsService,
+    private router: Router
   ) { }
 
   ngOnInit() { }
@@ -32,9 +35,9 @@ export class SignUPComponent implements OnInit {
       team_name: this.teamName.nativeElement.value
     }
 
-    this.db.list('teams').push(team)
+    this.teamSv.sing_up_team(team)
 
-    console.log(team)
+    this.router.navigateByUrl(`/sign-up-succed/${this.teamName.nativeElement.value}`)
   }
 
 
