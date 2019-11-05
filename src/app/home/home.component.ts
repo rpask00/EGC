@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
 
   @ViewChild('canvas', { read: ElementRef }) canvas: ElementRef<HTMLCanvasElement>;
   @ViewChild('signupbox', { read: ElementRef }) signupbox: ElementRef
+
   private ctx: CanvasRenderingContext2D;
   amplidute: number = 0;
   gui;

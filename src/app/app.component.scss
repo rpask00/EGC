@@ -115,6 +115,15 @@ a:hover {
     transform: translateX(-50%) scale(1.01);
   }
 
+  .logo {
+    width: 17vw;
+    height: 17vw;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
 }
 
 

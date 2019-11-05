@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef, ViewContainerRef } from '@angular/core';
 import { slide } from './route-animations';
-import { RouterOutlet, ActivatedRoute } from '@angular/router';
+import { RouterOutlet, ActivatedRoute, Router } from '@angular/router';
+import { Route } from '@angular/compiler/src/core';
 
 
 @Component({
@@ -17,11 +18,13 @@ export class AppComponent implements OnInit, AfterViewChecked {
   @ViewChild('footer', { read: ElementRef }) footer: ElementRef
   @ViewChild('bgImg', { read: ElementRef }) bgImg: ElementRef
 
-  constructor() { }
-  title = 'EZSAT';
+  constructor(
+    private router: Router
+  ) { }
   width: number = window.innerWidth;
-
+  location: string;
   ngAfterViewChecked() {
+    this.location = window.location.pathname;
     if (window.location.pathname === '/home') {
       (this.toolbar.nativeElement as HTMLElement).parentElement.style.backgroundColor = 'transparent';
       (this.toolbar.nativeElement as HTMLElement).parentElement.style.position = 'fixed';

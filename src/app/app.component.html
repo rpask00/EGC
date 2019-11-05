@@ -1,6 +1,8 @@
 <div class="bgImageBox" #bgImg>
   <!-- <div class="inside"></div> -->
-  <img src="../assets/TloStronyEGC.png" alt="" class="bgImg">
+  <img src="../assets/TloStronyEGC.png" *ngIf="router.url != '/about'">
+  <img src="../assets/logo.png" class='logo' *ngIf="router.url == '/home'">
+  <img src='../assets/o-nas.png' *ngIf="router.url == '/about'">
   <div #glass class="glass"></div>
 </div>
 <mat-toolbar class='toolbar'>
