@@ -28,6 +28,9 @@ import { SignUPComponent } from './sign-up/sign-up.component';
 import { SignupFormComponent } from './sign-up/signup-form/signup-form.component';
 import { SignupSuccedComponent } from './sign-up/signup-succed/signup-succed.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { RoutesGuard } from './guards/routes.guard';
+import { LoginComponent } from './admin/login/login.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -37,12 +40,13 @@ const appRoutes: Routes = [
   { path: 'signup', component: SignUPComponent, data: { animation: 'signup' }, pathMatch: 'full' },
   { path: 'info', component: InfoComponent, data: { animation: 'info' }, pathMatch: 'full' },
   { path: 'contact', component: ContactComponent, data: { animation: 'contact' }, pathMatch: 'full' },
-  { path: 'admin', component: AdminComponent, data: { animation: 'admin' }, pathMatch: 'full' },
+  { path: 'admin', component: AdminComponent, data: { animation: 'admin' }, pathMatch: 'full', canActivate: [RoutesGuard] },
   { path: 'news', component: NewsComponent, data: { animation: 'news' }, pathMatch: 'full' },
   { path: 'about', component: AboutUsComponent, data: { animation: 'news' }, pathMatch: 'full' },
   { path: 'schedule', component: ScheduleComponent, data: { animation: 'schedule' }, pathMatch: 'full' },
   { path: 'gallery', component: GalleryComponent, data: { animation: 'gallery' }, pathMatch: 'full' },
   { path: 'gallery/:key', component: LandscapeComponent, data: { animation: 'landscape' }, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, data: { animation: 'landscape' }, pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 
 ];
@@ -66,6 +70,7 @@ const appRoutes: Routes = [
     SignupFormComponent,
     SignupSuccedComponent,
     AboutUsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +78,7 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyAeEBpoM9461GNYKmourCQa9-6xTeZibYA'
     }),
     AllMaterialModule,
+    AngularFireAuthModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -86,7 +92,8 @@ const appRoutes: Routes = [
     )
   ],
   providers: [
-    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
+
   ],
   bootstrap: [AppComponent],
   entryComponents: [

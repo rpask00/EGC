@@ -10,6 +10,9 @@
     <img mat-card-image src="../assets/espotgamesclub2ver1.png" alt="">
   </mat-card-title> -->
   <div class="link" #toolbar>
+    <a (click)='logout()' mat-button color='warn' *ngIf='fireUser$ | async as user'>
+      Wyloguj
+    </a>
     <a routerLinkActive="colorFull" routerLink='home' mat-button>
       <i class="icon-home"></i>{{width<=900? "" : " Strona głowna"}}
     </a>
@@ -46,7 +49,7 @@
     <span class="instagram">
       <span class="fa fa-instagram"></span>
     </span></a>
-  <a mat-button href="https://www.facebook.com/ZSATeSportsLeague/"><i class="icon-facebook-squared"></i></a>
+  <a mat-button href="https://www.facebook.com/egcPOLSKA"><i class="icon-facebook-squared"></i></a>
   <!-- <a mat-button href="http://www.zsat-ropczyce.pl/"><i class="icon-graduation-cap"></i></a> -->
   <a mat-button href="https://www.youtube.com/channel/UCodrNqOTvcsbBgQeFRreACw"><i class="icon-youtube-play"></i></a>
 </mat-toolbar>

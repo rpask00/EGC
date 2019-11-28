@@ -1,0 +1,9 @@
+<form class='dashboard' #f='ngForm' (ngSubmit)='log_ig($event)'>
+  <mat-form-field>
+    <input matInput placeholder="Email" class="email">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type='password' placeholder="Haslo" class="password">
+  </mat-form-field>
+  <button type='submit' mat-raised-button color="primary">Autoryzuj</button>
+</form>

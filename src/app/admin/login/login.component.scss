@@ -1,0 +1,22 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn-box {
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+}
+
+
+h2,
+p {
+  color: white;
+
+}

@@ -1,7 +1,8 @@
 import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef, ViewContainerRef } from '@angular/core';
 import { slide } from './route-animations';
 import { RouterOutlet, ActivatedRoute, Router } from '@angular/router';
-import { Route } from '@angular/compiler/src/core';
+import { LoginService } from './SERVICES/login.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -17,10 +18,16 @@ export class AppComponent implements OnInit, AfterViewChecked {
   @ViewChild('toolbar', { read: ElementRef }) toolbar: ElementRef
   @ViewChild('footer', { read: ElementRef }) footer: ElementRef
   @ViewChild('bgImg', { read: ElementRef }) bgImg: ElementRef
+  fireUser$: Observable<any>
 
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    private loginSv: LoginService
+  ) {
+    this.fireUser$ = this.loginSv.islogged
+  }
+
+
   width: number = window.innerWidth;
   location: string;
   ngAfterViewChecked() {
@@ -46,6 +53,11 @@ export class AppComponent implements OnInit, AfterViewChecked {
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
+
+  logout() {
+    this.loginSv.logout()
+  }
+
 
 
 }
