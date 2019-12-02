@@ -18,8 +18,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
   log_ig(e: any) {
     e.preventDefault()
     let email = e.target.querySelector('.email').value

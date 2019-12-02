@@ -14,7 +14,6 @@ export class RoutesGuard implements CanActivate {
     private router: Router
   ) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    console.log('edfs')
     return this.loginSv.islogged.pipe(map(usr => {
       if (usr) return true
       this.router.navigate(['login'])

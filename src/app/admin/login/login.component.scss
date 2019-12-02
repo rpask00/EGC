@@ -3,9 +3,10 @@ form {
   flex-direction: column;
   width: 300px;
   position: absolute;
+  transform: translateX(-50%);
   top: 30%;
   left: 50%;
-  transform: translateX(-50%);
+
 }
 
 .btn-box {
@@ -18,5 +19,14 @@ form {
 h2,
 p {
   color: white;
+
+}
+
+img {
+  position: absolute;
+  transform: translateX(-50%);
+  top: 10%;
+  z-index: -1;
+  left: 50%;
 
 }
