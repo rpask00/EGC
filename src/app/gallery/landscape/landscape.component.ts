@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable, forkJoin } from 'rxjs';
 import { MatDialog } from '@angular/material';
@@ -15,21 +15,17 @@ import { slidePhoto } from 'src/app/route-animations';
     slidePhoto
   ]
 })
-export class LandscapeComponent implements OnInit, AfterViewInit {
+export class LandscapeComponent implements OnInit {
 
   imgArr: Observable<string[]>
   key: string;
   form: FormGroup;
   images: File[] = [];
-
   constructor(
     private imageSrv: ImageService,
     private dialog: MatDialog,
     private route: ActivatedRoute
   ) { }
-  ngAfterViewInit() {
-
-  }
 
 
   ngOnInit() {
@@ -41,13 +37,16 @@ export class LandscapeComponent implements OnInit, AfterViewInit {
     this.imgArr = this.imageSrv.getPhotos(folderName)
   }
 
-  openDialog(img) {
+  openDialog(img, imgArr) {
     if (this.dialog.openDialogs.length) return
 
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '85vw',
-      height: '57vw',
-      data: { img }
+      width: '60vw',
+      height: '40vw',
+      data: {
+        img,
+        imgArr
+      }
     })
 
     dialogRef.afterClosed().subscribe();

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ImageService } from '../SERVICES/image.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -12,8 +12,8 @@ export class GalleryComponent implements OnInit {
 
 
   labels$: Observable<{ key: string; quantity: number; }[]>
-  CSimg: string = 'http://www.yagmurhaber.com/wp-content/uploads/2018/10/CS-GO-kodlar%C4%B1-631x354.jpg'
-  LOLimg: string = 'https://a.allegroimg.com/s400/030c75/47f08daf478b9021974cf159b96a/Konto-League-of-Legends-30-lvl-EUNE-Unranked-Smurf';
+  CSimg: string = 'https://menworld.pl/wp-content/uploads/2019/11/csgo.jpg'
+  LOLimg: string = 'https://eune.leagueoflegends.com/sites/default/files/styles/scale_xlarge/public/upload/league-newlogo-banner.jpg?itok=oErYYqim';
   constructor(
     private imgSrv: ImageService,
     private router: Router

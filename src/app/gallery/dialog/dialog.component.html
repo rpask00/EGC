@@ -1,1 +1,8 @@
-<img [src]="data.img" alt="">
+<div class="container">
+  <img src="../../../assets/close-2.png" alt="close" (click)='onClose(dialogRef)' class="opacity close">
+
+  <img [src]="data.img" class='full'>
+  <img (click)='swipeLeft()' class='opacity left-arrow arrow' src="../../../assets/flecha_slider.png" alt="left-arrow">
+  <img (click)='swipeRight()' class='opacity right-arrow arrow' src="../../../assets/flecha_slider.png"
+    alt="right-arrow">
+</div>
