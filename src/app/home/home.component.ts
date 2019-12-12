@@ -1,16 +1,18 @@
-import { Component, OnInit, ElementRef, ViewChild, NgZone, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, NgZone, ViewContainerRef, OnDestroy } from '@angular/core';
 import * as dat from 'dat.gui'
 import { Wave, Color, backGround, ColorRGB } from '../MODELS/wave.model';
+import { delay } from 'q';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   @ViewChild('canvas', { read: ElementRef }) canvas: ElementRef<HTMLCanvasElement>;
   @ViewChild('signupbox', { read: ElementRef }) signupbox: ElementRef
-
+  previousScrollPos = 5000
+  scrollLock: boolean = false
   private ctx: CanvasRenderingContext2D;
   amplidute: number = 0;
   gui;
@@ -75,8 +77,40 @@ export class HomeComponent implements OnInit {
     this.canvas.nativeElement.width = innerWidth;
     this.canvas.nativeElement.height = innerHeight;
 
+    // 2 step-scrolling
+    document.addEventListener('scroll', this.two_step_scroll.bind(event))
+  }
+  ngOnDestroy() {
+
+    document.removeEventListener('scroll', this.two_step_scroll)
   }
 
+  private two_step_scroll(e) {
+    if (!this.scrollLock) {
+      if (window.scrollY > this.previousScrollPos) {
+        console.log('down')
+        window.scrollTo({
+          top: 1000,
+          behavior: 'smooth'
+        })
+        this.scrollLock = true
+        setTimeout(() => {
+          this.scrollLock = false
+        }, 500)
+      } else {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        })
+        this.scrollLock = true
+        setTimeout(() => {
+          this.scrollLock = false
+        }, 500)
+
+      }
+    }
+    this.previousScrollPos = window.scrollY
+  }
   wobble() {
     this.ctx = this.canvas.nativeElement.getContext('2d')
     this.ctx.beginPath()
