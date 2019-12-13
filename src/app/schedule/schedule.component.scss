@@ -6,6 +6,7 @@
   transform: translate(-50%);
   display: flex;
   padding: 10px;
+  margin-bottom: 50px;
 }
 
 h1 {
@@ -15,34 +16,91 @@ h1 {
 
 .active {
   margin: 5px;
-//   background-color: #053C5F;
-  flex-grow: 2;
-  height: 90vh;
+  background-color: #053C5F;
+  flex-grow: 3;
+  height: 90vhd;
   padding: 15px;
   box-sizing: content-box;
+
+  .match-box {
+    border: 2px solid #DF8D26;
+    border-radius: 2px;
+
+    h2 {
+      background-color: #053C5F;
+      color: #EFAA54;
+
+    }
+
+    .info {
+
+
+      .team {
+        color: #AE1E78;
+      }
+
+      .date {
+        color: white;
+      }
+    }
+  }
+
 }
 
 .ended {
-//   background-color: #022A44;
+  background-color: #022A44;
   flex-grow: 1;
+  padding: 15px;
+
+  .match-box {
+    border: 2px solid gainsboro;
+    border-radius: 2px;
+    opacity: .5;
+
+    h2 {
+      background-color: #022A44;
+      color: gray;
+
+    }
+
+    .info {
+
+
+      .team {
+        color: rgb(90, 14, 60);
+
+        .result {
+          padding: 15px;
+        }
+      }
+
+      .team-a {
+        color: green;
+      }
+
+      .team-b {
+        color: red;
+      }
+
+      .date {
+        color: white;
+      }
+    }
+  }
+
 }
 
 .match-box {
-  border: 2px solid #DF8D26;
-  border-radius: 2px;
   position: relative;
-  margin-top: 20px;
+  margin-top: 30px;
 
   h2 {
     position: absolute;
     top: -35px;
     left: 10%;
-    // background-color: #053C5F;
     display: table;
     padding: 3px;
-    color: #EFAA54;
     transform: skew(-4deg);
-
   }
 
   .info {
@@ -51,19 +109,40 @@ h1 {
     text-align: center;
     padding: 13px 0 13px 0;
     font-size: 25px;
+    align-items: center;
 
     .team {
       flex-grow: 2;
-      color: #AE1E78;
       font-weight: 400;
       font-family: 'Alatsi', sans-serif;
 
     }
 
-    .date {
-      line-height: 40px;
+    .date-box {
+      display: flex;
+      flex-direction: column;
+      height: 70px;
       flex-grow: 1;
-      color: white;
+      justify-content: center;
+      align-items: space-around;
+
+      .date {
+        font-size: 20px;
+        display: block;
+        font-family: 'Alatsi', sans-serif;
+      }
+
+      .hour {
+        color: #DEB78D
+      }
+
+      .format {
+        display: block;
+        font-size: 15px;
+        color: gold;
+
+        font-family: 'Patua One', cursive;
+      }
     }
   }
 }

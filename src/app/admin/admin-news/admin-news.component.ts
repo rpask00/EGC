@@ -59,7 +59,6 @@ export class AdminNewsComponent implements OnInit {
     this.image = await this.toBase64(e.target.files[0]) as string;
     this.form.value.image = e.target.files[0];
   }
-  s
   avatarImage() {
     if (this.form.value.game == 'cs')
       this.avatar.nativeElement.src = this.csUrl;

@@ -7,3 +7,11 @@ export interface News {
     game: string,
     date: number,
 }
+
+export interface Match {
+    team_a: string,
+    team_b: string,
+    time: string,
+    date: string,
+    format: string,
+}

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Match } from '../MODELS/match.model';
+import { ScheduleService } from 'src/app/SERVICES/schedule.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-schedule',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleComponent implements OnInit {
 
-  constructor() { }
+  private matches$: Observable<Match[]>
+  constructor(
+    private ScheduleSv: ScheduleService
+  ) { }
 
   ngOnInit() {
+    this.matches$ = this.ScheduleSv.matches$
+    this.matches$.subscribe(console.log)
   }
 
 }

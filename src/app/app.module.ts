@@ -31,6 +31,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { RoutesGuard } from './guards/routes.guard';
 import { LoginComponent } from './admin/login/login.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AdminScheduleComponent } from './admin/admin-schedule/admin-schedule.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -71,6 +72,7 @@ const appRoutes: Routes = [
     SignupSuccedComponent,
     AboutUsComponent,
     LoginComponent,
+    AdminScheduleComponent,
   ],
   imports: [
     BrowserModule,

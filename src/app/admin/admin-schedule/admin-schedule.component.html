@@ -1,0 +1,28 @@
+<form class="dashboard" [formGroup]="form">
+  <h1>Dodaj mecz</h1>
+  <mat-form-field>
+    <input matInput formControlName='status' type="text" #txt placeholder='Status'>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName='team_a' type="text" #txt placeholder='Team A'>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName='team_b' type="text" #txt placeholder='Team B'>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Data" formControlName='date'>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName='time' type="text" #txt placeholder='Godzina'>
+  </mat-form-field>
+  <mat-radio-group aria-label="Select an option" formControlName='format'>
+    <mat-radio-button class='radio' value="bo1">bo1</mat-radio-button>
+    <mat-radio-button class='radio' value="bo3">bo3</mat-radio-button>
+    <mat-radio-button class='radio' value="bo5">bo5</mat-radio-button>
+  </mat-radio-group>
+
+  <button [disabled]='form.invalid' mat-raised-button (click)='upload()'>Dodaj mecz</button>
+
+</form>

@@ -1,89 +1,31 @@
 <div class="container">
-  <div class="active">
+  <div class="active" *ngIf='matches$ | async as matches'>
     <h1>Nadchodzące</h1>
-    <div class="match-box">
-      <h2> Półfinał</h2>
+    <div class="match-box" *ngFor='let m of matches'>
+      <h2> {{m.status}}</h2>
       <div class="info">
-        <p class="team">Faze</p>
-        <p class="date">11-12-2019</p>
-        <p class="team">Astralis</p>
+        <p class="team">{{m.team_a}}</p>
+        <div class="date-box">
+          <div class="date">{{m.date}} <span class="hour">{{m.time}}</span> </div>
+          <div class="format">{{m.format}}</div>
+        </div>
+        <p class="team">{{m.team_b}}</p>
       </div>
     </div>
 
-    <div class="match-box">
-      <h2> Półfinał</h2>
-      <div class="info">
-        <p class="team">Faze</p>
-        <p class="date">11-12-2019</p>
-        <p class="team">Astralis</p>
-      </div>
-    </div>
-
-    <div class="match-box">
-      <h2> Półfinał</h2>
-      <div class="info">
-        <p class="team">Faze</p>
-        <p class="date">11-12-2019</p>
-        <p class="team">Astralis</p>
-      </div>
-    </div>
-
-    <div class="match-box">
-      <h2> Półfinał</h2>
-      <div class="info">
-        <p class="team">Faze</p>
-        <p class="date">11-12-2019</p>
-        <p class="team">Astralis</p>
-      </div>
-    </div>
-
-    <div class="match-box">
-      <h2> Półfinał</h2>
-      <div class="info">
-        <p class="team">Faze</p>
-        <p class="date">11-12-2019</p>
-        <p class="team">Astralis</p>
-      </div>
-    </div>
-
-    <div class="match-box">
-      <h2> Półfinał</h2>
-      <div class="info">
-        <p class="team">Faze</p>
-        <p class="date">11-12-2019</p>
-        <p class="team">Astralis</p>
-      </div>
-    </div>
-
+   
+    <div class="ended">
+      <h1>Zakończone</h1>
       <div class="match-box">
         <h2> Półfinał</h2>
         <div class="info">
-          <p class="team">Faze</p>
-          <p class="date">11-12-2019</p>
-          <p class="team">Astralis</p>
+          <p class="team team-a">Faze <span class="result"> 2</span></p>
+          <div class="date-box">
+            <div class="date">11-12-2019 <span class="hour">12:00</span> </div>
+            <div class="format">bo 3</div>
+          </div>
+          <p class="team team-b"> <span class="result">1 </span>Astralis</p>
         </div>
       </div>
-
-        <div class="match-box">
-          <h2> Półfinał</h2>
-          <div class="info">
-            <p class="team">Faze</p>
-            <p class="date">11-12-2019</p>
-            <p class="team">Astralis</p>
-          </div>
-        </div>
-
-          <div class="match-box">
-            <h2> Półfinał</h2>
-            <div class="info">
-              <p class="team">Faze</p>
-              <p class="date">11-12-2019</p>
-              <p class="team">Astralis</p>
-            </div>
-          </div>
+    </div>
   </div>
-  <div class="ended">
-    <h1>Zakończone</h1>
-
-  </div>
-</div>
