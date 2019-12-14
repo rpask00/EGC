@@ -38,7 +38,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
       (this.footer.nativeElement.parentElement as HTMLElement).classList.add('footer-on-home');
       (this.bgImg.nativeElement as HTMLElement).style.opacity = '.7';
     } else {
-      (this.toolbar.nativeElement as HTMLElement).parentElement.style.backgroundColor = '#1A237E';
+      (this.toolbar.nativeElement as HTMLElement).parentElement.style.backgroundColor = '#030a13;';
       // (this.toolbar.nativeElement as HTMLElement).parentElement.style.position = 'static';
       (this.footer.nativeElement.parentElement as HTMLElement).classList.remove('footer-on-home');
       (this.bgImg.nativeElement as HTMLElement).style.opacity = '1';

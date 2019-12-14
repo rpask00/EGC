@@ -1,6 +1,6 @@
 .container {
   width: 80vw;
-  min-height: 70vh;
+  min-height: 60vh;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -12,22 +12,22 @@
 h1 {
   text-align: center;
   color: whitesmoke;
+  font-family: 'Alatsi',
+    sans-serif;
 }
 
 .active {
-  margin: 5px;
-  background-color: #053C5F;
+  margin-right: 10px;
+  background-color: #051627ea;
   flex-grow: 3;
-  height: 90vhd;
-  padding: 15px;
-  box-sizing: content-box;
+  padding: 30px;
 
   .match-box {
     border: 2px solid #DF8D26;
     border-radius: 2px;
 
     h2 {
-      background-color: #053C5F;
+      background-color: #051627ea;
       color: #EFAA54;
 
     }
@@ -36,7 +36,7 @@ h1 {
 
 
       .team {
-        color: #AE1E78;
+        color: white;
       }
 
       .date {
@@ -48,17 +48,16 @@ h1 {
 }
 
 .ended {
-  background-color: #022A44;
+  background-color: #051627ea;
   flex-grow: 1;
-  padding: 15px;
+  padding: 30px;
 
   .match-box {
     border: 2px solid gainsboro;
-    border-radius: 2px;
     opacity: .5;
 
     h2 {
-      background-color: #022A44;
+      background-color: #051627ea;
       color: gray;
 
     }
@@ -107,22 +106,21 @@ h1 {
     display: flex;
     width: 100%;
     text-align: center;
-    padding: 13px 0 13px 0;
+    padding: 10px 0 10px 0;
     font-size: 25px;
     align-items: center;
+    justify-content: center;
 
     .team {
-      flex-grow: 2;
+      min-width: 35%;
       font-weight: 400;
       font-family: 'Alatsi', sans-serif;
-
     }
 
     .date-box {
       display: flex;
       flex-direction: column;
       height: 70px;
-      flex-grow: 1;
       justify-content: center;
       align-items: space-around;
 

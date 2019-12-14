@@ -1,28 +1,55 @@
 <form class="dashboard" [formGroup]="form">
-  <h1>Dodaj mecz</h1>
+  <h1>Zarządzaj meczem</h1>
   <mat-form-field>
     <input matInput formControlName='status' type="text" #txt placeholder='Status'>
   </mat-form-field>
-  <mat-form-field>
-    <input matInput formControlName='team_a' type="text" #txt placeholder='Team A'>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput formControlName='team_b' type="text" #txt placeholder='Team B'>
-  </mat-form-field>
-  <mat-form-field>
+  <div class="fulllength">
+    <mat-form-field class='team'>
+      <input matInput formControlName='team_a' type="text" #txt placeholder='Team A'>
+    </mat-form-field>
+    <mat-form-field>
+      <input class='score' matInput formControlName='score_team_a' type="text" #txt placeholder='Wynik'>
+    </mat-form-field>
+  </div>
+  <div class="fulllength">
+    <mat-form-field class='team'>
+      <input matInput formControlName='team_b' type="text" #txt placeholder='Team B'>
+    </mat-form-field>
+    <mat-form-field>
+      <input class='score' matInput formControlName='score_team_b' type="text" #txt placeholder='Wynik'>
+    </mat-form-field>
+  </div>
+  <!-- <mat-form-field>
     <input matInput [matDatepicker]="picker" placeholder="Data" formControlName='date'>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+  </mat-form-field> -->
   <mat-form-field>
-    <input matInput formControlName='time' type="text" #txt placeholder='Godzina'>
+    <input matInput formControlName='team_b' type="datetime-local" #txt placeholder="Data" formControlName='date'>
   </mat-form-field>
+
+  <!-- <mat-form-field>
+    <input matInput formControlName='time' type="text" #txt placeholder='Godzina'>
+  </mat-form-field> -->
+
   <mat-radio-group aria-label="Select an option" formControlName='format'>
     <mat-radio-button class='radio' value="bo1">bo1</mat-radio-button>
     <mat-radio-button class='radio' value="bo3">bo3</mat-radio-button>
     <mat-radio-button class='radio' value="bo5">bo5</mat-radio-button>
   </mat-radio-group>
 
-  <button [disabled]='form.invalid' mat-raised-button (click)='upload()'>Dodaj mecz</button>
+  <button [disabled]='form.invalid' mat-raised-button (click)='upload()'>Zatwierdź</button>
+
+  <div class="matches" *ngIf='matches$ | async as matches'>
+    <div class="matchbox dashboard" *ngFor='let m of matches'>
+      <p><b>Status</b>: {{m.status}}</p>
+      <p><b>Team A</b>: {{m.team_a}}</p>
+      <p><b>Team B</b>: {{m.team_b}}</p>
+      <p><b>Wynik A</b>: {{m.score_team_a ? m.score_team_a :'-' }}</p>
+      <p><b>Wynik B</b>: {{m.score_team_b ? m.score_team_b :'-' }}</p>
+      <p><b>Data</b>: {{m.date}}</p>
+      <button (click)='edit(m)' mat-raised-button color='primary'>Edytuj</button>
+    </div>
+  </div>
 
 </form>

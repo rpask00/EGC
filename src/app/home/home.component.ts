@@ -78,17 +78,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.canvas.nativeElement.height = innerHeight;
 
     // 2 step-scrolling
-    document.addEventListener('scroll', this.two_step_scroll.bind(event))
+    document.addEventListener('scroll', this.two_step_scroll.bind(this, event))
   }
   ngOnDestroy() {
 
-    document.removeEventListener('scroll', this.two_step_scroll)
+    document.removeEventListener('scroll', this.two_step_scroll.bind(this, event))
   }
 
   private two_step_scroll(e) {
     if (!this.scrollLock) {
       if (window.scrollY > this.previousScrollPos) {
-        console.log('down')
         window.scrollTo({
           top: 1000,
           behavior: 'smooth'

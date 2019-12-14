@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Match } from '../MODELS/match.model';
 import { ScheduleService } from 'src/app/SERVICES/schedule.service';
 import { Observable } from 'rxjs';
+import { take, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-schedule',
@@ -16,8 +17,28 @@ export class ScheduleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.matches$ = this.ScheduleSv.matches$
-    this.matches$.subscribe(console.log)
+    this.matches$ = this.ScheduleSv.matches$.pipe(
+      take(1),
+      map(ms => {
+        ms.sort((a, b) => {
+          let x = new Date(a.date);
+          let y = new Date(b.date);
+          return x > y ? -1 : x < y ? 1 : 0;
+        })
+        ms.reverse()
+        return ms
+      }),
+      map(ms => {
+        return ms.map(m => {
+          m.date = new Date(m.date)
+          let hr = m.date.getHours() < 10 ? `0${m.date.getHours()}` : m.date.getHours()
+          let min = m.date.getMinutes() < 10 ? `0${m.date.getMinutes()}` : m.date.getMinutes()
+          m.time = `${hr}:${min}`
+          return m
+        })
+      })
+    )
+
   }
 
 }

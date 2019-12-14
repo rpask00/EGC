@@ -1,6 +1,8 @@
 form {
   display: flex;
   flex-direction: column;
+  margin-bottom: 60px;
+
 }
 
 .radio {
@@ -14,4 +16,36 @@ h1 {
 
 button {
   margin-top: 20px;
+}
+
+.fulllength {
+  width: 100%;
+  display: flex;
+}
+
+.team {
+  flex-grow: 3;
+}
+
+.matches {
+  position: relative;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+
+  .matchbox {
+    padding: 15px;
+    margin: 3px;
+
+    p {
+      color: white;
+
+      b {
+        color: wheat;
+      }
+    }
+  }
 }

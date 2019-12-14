@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Match } from '../../MODELS/match.model';
 import { ScheduleService } from 'src/app/SERVICES/schedule.service';
+import { Observable } from 'rxjs';
+import { take, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-admin-schedule',
@@ -11,6 +13,7 @@ import { ScheduleService } from 'src/app/SERVICES/schedule.service';
 export class AdminScheduleComponent implements OnInit {
 
   form: FormGroup
+  private matches$: Observable<Match[]>
   constructor(
     private ScheduleSv: ScheduleService
   ) {
@@ -19,9 +22,15 @@ export class AdminScheduleComponent implements OnInit {
         updateOn: 'blur',
         validators: [Validators.required]
       }),
+      score_team_a: new FormControl(null, {
+        updateOn: 'blur',
+      }),
       team_a: new FormControl(null, {
         updateOn: 'blur',
         validators: [Validators.required]
+      }),
+      score_team_b: new FormControl(null, {
+        updateOn: 'blur',
       }),
       team_b: new FormControl(null, {
         updateOn: 'blur',
@@ -35,29 +44,39 @@ export class AdminScheduleComponent implements OnInit {
         updateOn: 'blur',
         validators: [Validators.required],
       }),
-      time: new FormControl(null, {
-        updateOn: 'blur',
-        validators: [Validators.required]
-      })
+      // time: new FormControl(null, {
+      //   updateOn: 'blur',
+      //   validators: [Validators.required]
+      // })
     })
   }
 
   ngOnInit() {
+    this.matches$ = this.ScheduleSv.matches$.pipe(take(1))
+
   }
 
   upload() {
-    const day = `${(this.form.value.date as Date).getDay()}/${(this.form.value.date as Date).getMonth()}/${(this.form.value.date as Date).getFullYear()}`
-    console.log(day)
     const match: Match = {
       status: this.form.value.status,
       team_a: this.form.value.team_a,
       team_b: this.form.value.team_b,
-      time: this.form.value.time,
       format: this.form.value.format,
-      date: day
+      date: this.form.value.date
     }
     this.ScheduleSv.add_match(match).then(res => {
       this.form.reset()
     })
+  }
+
+  edit(m) {
+    console.log(m)
+    this.form.controls['status'].setValue(m.status);
+    this.form.controls['team_a'].setValue(m.team_a);
+    this.form.controls['score_team_a'].setValue(m.score_team_a);
+    this.form.controls['team_b'].setValue(m.team_b);
+    this.form.controls['score_team_b'].setValue(m.score_team_b);
+    this.form.controls['format'].setValue(m.format);
+    this.form.controls['date'].setValue(m.date);
   }
 }
