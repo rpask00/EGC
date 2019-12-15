@@ -4,8 +4,7 @@
     <div class="match-box" *ngFor='let m of matches'>
       <h2> {{m.status}}</h2>
       <div class="info">
-        <div class="live">
-
+        <div class="live" *ngIf='m.live'>
           <p> <span class="red-dot"></span><a target="_blank" href="https://confused-travolta.herokuapp.com">Live</a>
           </p>
         </div>
