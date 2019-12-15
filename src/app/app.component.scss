@@ -33,7 +33,6 @@ i {
   bottom: 0;
   z-index: 2;
 
-
 }
 
 .footer-on-home {
@@ -111,7 +110,6 @@ a:hover {
 
 
 .bgImageBox {
-  width: 100%;
   overflow: hidden;
   position: fixed;
   z-index: -3;
@@ -127,6 +125,8 @@ a:hover {
   }
 
   .logo {
+    min-width: 200px;
+    min-height: 200px;
     width: 17vw;
     height: 17vw;
     position: fixed;
@@ -140,7 +140,22 @@ a:hover {
 
 
 @media only screen and (max-width: 900px) {
+
+  .bgImageBox {}
+
   .toolbar {
+    position: static;
     justify-content: center;
+    width: 100%;
+    padding: 0;
+
+    .link {
+      width: 100%;
+    }
+
+    a {
+      transform: scale(.5);
+    }
+
   }
 }

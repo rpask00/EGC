@@ -33,12 +33,12 @@ export class AppComponent implements OnInit, AfterViewChecked {
   ngAfterViewChecked() {
     this.location = window.location.pathname;
     if (window.location.pathname === '/home') {
-      (this.toolbar.nativeElement as HTMLElement).parentElement.style.backgroundColor = 'transparent';
+      // (this.toolbar.nativeElement as HTMLElement).parentElement.style.backgroundColor = 'transparent';
       // (this.toolbar.nativeElement as HTMLElement).parentElement.style.position = 'fixed';
       (this.footer.nativeElement.parentElement as HTMLElement).classList.add('footer-on-home');
       (this.bgImg.nativeElement as HTMLElement).style.opacity = '.7';
     } else {
-      (this.toolbar.nativeElement as HTMLElement).parentElement.style.backgroundColor = '#030a13;';
+      (this.toolbar.nativeElement as HTMLElement).parentElement.style.backgroundColor = '#030a13';
       // (this.toolbar.nativeElement as HTMLElement).parentElement.style.position = 'static';
       (this.footer.nativeElement.parentElement as HTMLElement).classList.remove('footer-on-home');
       (this.bgImg.nativeElement as HTMLElement).style.opacity = '1';

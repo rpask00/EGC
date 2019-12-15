@@ -4,6 +4,11 @@
     <div class="match-box" *ngFor='let m of matches'>
       <h2> {{m.status}}</h2>
       <div class="info">
+        <div class="live">
+
+          <p> <span class="red-dot"></span><a target="_blank" href="https://confused-travolta.herokuapp.com">Live</a>
+          </p>
+        </div>
         <p class="team">{{m.team_a}}</p>
         <div class="date-box">
           <div class="date">{{m.date.getDate()}}/{{m.date.getMonth() +1 }}/{{m.date.getFullYear()}}
@@ -16,18 +21,19 @@
     </div>
   </div>
 
-  <div class="ended">
+  <div class="ended" *ngIf='matches_ended$ | async as matches'>
     <h1>Zakończone</h1>
-    <div class="match-box">
-      <h2> Półfinał</h2>
+    <div class="match-box" *ngFor='let m of matches'>
+      <h2> {{m.status}}</h2>
       <div class="info">
-        <p class="team team-a">Faze <span class="result"> 2</span></p>
+        <p class="team team-a">{{m.team_a}} <span class="result">{{m.score_team_a}} </span></p>
         <div class="date-box">
-          <!-- <div class="date">11/12/2019 <span class="hour">12:00</span> </div> -->
-          <div class="date">11-12-2019 <span class="hour">12:00</span> </div>
-          <div class="format">bo 3</div>
+          <div class="date">{{m.date.getDate()}}/{{m.date.getMonth() +1 }}/{{m.date.getFullYear()}}
+            <span class="hour">{{m.time}}</span>
+          </div>
+          <div class="format">{{m.format}}</div>
         </div>
-        <p class="team team-b"> <span class="result">1 </span>Astralis</p>
+        <p class="team team-b"> <span class="result">{{m.score_team_b}} </span>{{m.team_b}}</p>
       </div>
     </div>
   </div>

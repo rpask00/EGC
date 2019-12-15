@@ -1,14 +1,9 @@
 <div class="bgImageBox" #bgImg>
-  <!-- <div class="inside"></div> -->
-  <img src="../assets/TloStronyEGC.png" *ngIf="router.url != '/about'">
+  <img src="../assets/TloStronyEGC.png" class="bgImage" *ngIf="router.url != '/about'">
   <img src="../assets/logo.png" class='logo' *ngIf="router.url == '/home'">
   <img src='../assets/o-nas.png' *ngIf="router.url == '/about'">
-  <div #glass class="glass"></div>
 </div>
 <mat-toolbar class='toolbar'>
-  <!-- <mat-card-title>
-    <img mat-card-image src="../assets/espotgamesclub2ver1.png" alt="">
-  </mat-card-title> -->
   <div class="link" #toolbar>
     <a (click)='logout()' mat-button color='warn' *ngIf='fireUser$ | async as user'>
       Wyloguj
@@ -19,16 +14,14 @@
     <a routerLinkActive="colorFull" routerLink='news' mat-button>
       <i class="icon-newspaper"></i>{{width<=900? "" : "  Aktualności"}}
     </a>
-    <!-- <a routerLinkActive="colorFull" routerLink='info' mat-button> <i
-        class="icon-info-circled"></i>{{width<=900? "" : "  Informacje"}}</a> -->
     <a routerLinkActive="colorFull" routerLink='contact' mat-button>
       <i class="icon-location"></i>{{width<=900? "" : "  Lokalizacja"}}
     </a>
     <a routerLinkActive="colorFull" routerLink='about' mat-button>
       <i class="icon-emo-laugh"></i>{{width<=900? "" : "  O nas"}}
     </a>
-    <a routerLinkActive="colorFull" routerLink='schedule' mat-button> <i
-   a     class="icon-sticky-note-o"></i>{{width<=900? "" : "  Harmonogram"}}</a>
+    <a routerLinkActive="colorFull" routerLink='schedule' mat-button> <i a
+        class="icon-sticky-note-o"></i>{{width<=900? "" : "  Harmonogram"}}</a>
     <a routerLinkActive="colorFull" routerLink='gallery' mat-button>
       <i class="icon-picture"></i>{{width<=900? "" : "  Galeria"}}
     </a>
@@ -50,6 +43,5 @@
       <span class="fa fa-instagram"></span>
     </span></a>
   <a mat-button href="https://www.facebook.com/egcPOLSKA"><i class="icon-facebook-squared"></i></a>
-  <!-- <a mat-button href="http://www.zsat-ropczyce.pl/"><i class="icon-graduation-cap"></i></a> -->
   <a mat-button href="https://www.youtube.com/channel/UCodrNqOTvcsbBgQeFRreACw"><i class="icon-youtube-play"></i></a>
 </mat-toolbar>

@@ -3,8 +3,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  background-color: rgba($color: rgb(1, 45, 102), $alpha: .95);
+  width: 45%;
+  background-color: rgba($color: rgb(6, 20, 39), $alpha: .99);
   margin: auto;
   padding: 30px;
   border-radius: 3px;
@@ -13,13 +13,14 @@
 
 button {
   width: 60%;
-  margin: 20px auto 20px auto;
+  margin: 5px auto 20px auto;
 }
 
 .team {
   padding: 15px;
   margin: 30px auto 30px auto;
-  background-color: rgba($color: #212121, $alpha: .5);
+  // background-color:rgba($color: rgb(6, 20, 39), $alpha: .99);
+  background-color:rgba($color: rgb(6, 16, 34), $alpha: .99);
   width: 60%;
   border-radius: 5px;
   color: #E91E63;
@@ -40,6 +41,7 @@ button {
     color: #880E4F;
     border: none;
     border-radius: 5px;
+    background-color: rgba($color: rgb(11, 30, 62), $alpha: .99);
   }
 }
 

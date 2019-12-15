@@ -25,29 +25,35 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field> -->
   <mat-form-field>
-    <input matInput formControlName='team_b' type="datetime-local" #txt placeholder="Data" formControlName='date'>
+    <input matInput type="datetime-local" #txt placeholder="Data" formControlName='date'>
   </mat-form-field>
 
   <!-- <mat-form-field>
     <input matInput formControlName='time' type="text" #txt placeholder='Godzina'>
   </mat-form-field> -->
+  <div class='row'>
 
-  <mat-radio-group aria-label="Select an option" formControlName='format'>
-    <mat-radio-button class='radio' value="bo1">bo1</mat-radio-button>
-    <mat-radio-button class='radio' value="bo3">bo3</mat-radio-button>
-    <mat-radio-button class='radio' value="bo5">bo5</mat-radio-button>
-  </mat-radio-group>
+    <mat-radio-group aria-label="Select an option" formControlName='format'>
+      <mat-radio-button class='radio' value="bo1">bo1</mat-radio-button>
+      <mat-radio-button class='radio' value="bo3">bo3</mat-radio-button>
+      <mat-radio-button class='radio' value="bo5">bo5</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-checkbox class="check" formControlName='live'>Live</mat-checkbox>
+  </div>
 
   <button [disabled]='form.invalid' mat-raised-button (click)='upload()'>Zatwierdź</button>
 
-  <div class="matches" *ngIf='matches$ | async as matches'>
+  <div class="matches" *ngIf='matches_payload$ | async as matches'>
     <div class="matchbox dashboard" *ngFor='let m of matches'>
-      <p><b>Status</b>: {{m.status}}</p>
-      <p><b>Team A</b>: {{m.team_a}}</p>
-      <p><b>Team B</b>: {{m.team_b}}</p>
-      <p><b>Wynik A</b>: {{m.score_team_a ? m.score_team_a :'-' }}</p>
-      <p><b>Wynik B</b>: {{m.score_team_b ? m.score_team_b :'-' }}</p>
-      <p><b>Data</b>: {{m.date}}</p>
+      <p><b>Status</b>: {{m.payload.val().status}}
+        <span *ngIf='m.payload.val().live' class="red-dot"></span>
+      </p>
+      <p><b>Team A</b>: {{m.payload.val().team_a}}</p>
+      <p><b>Team B</b>: {{m.payload.val().team_b}}</p>
+      <p><b>Wynik A</b>: {{m.payload.val().score_team_a ? m.payload.val().score_team_a :'-' }}</p>
+      <p><b>Wynik B</b>: {{m.payload.val().score_team_b ? m.payload.val().score_team_b :'-' }}</p>
+      <p><b>Data</b>: {{m.payload.val().date}}</p>
       <button (click)='edit(m)' mat-raised-button color='primary'>Edytuj</button>
     </div>
   </div>

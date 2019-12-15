@@ -6,5 +6,6 @@ export interface Match {
     score_team_b?: string,
     date: string | Date,
     format: string,
-    time?: string
+    time?: string,
+    live?: boolean
 }

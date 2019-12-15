@@ -86,6 +86,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   private two_step_scroll(e) {
+    console.log('scroll')
     if (!this.scrollLock) {
       if (window.scrollY > this.previousScrollPos) {
         window.scrollTo({

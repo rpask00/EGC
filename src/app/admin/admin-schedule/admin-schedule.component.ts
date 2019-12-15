@@ -14,6 +14,8 @@ export class AdminScheduleComponent implements OnInit {
 
   form: FormGroup
   private matches$: Observable<Match[]>
+  private matches_payload$: Observable<any>
+  private current_match: string = ''
   constructor(
     private ScheduleSv: ScheduleService
   ) {
@@ -44,16 +46,14 @@ export class AdminScheduleComponent implements OnInit {
         updateOn: 'blur',
         validators: [Validators.required],
       }),
-      // time: new FormControl(null, {
-      //   updateOn: 'blur',
-      //   validators: [Validators.required]
-      // })
+      live: new FormControl(false, {
+        updateOn: 'blur',
+      }),
     })
   }
 
   ngOnInit() {
-    this.matches$ = this.ScheduleSv.matches$.pipe(take(1))
-
+    this.matches_payload$ = this.ScheduleSv.matches_payload$
   }
 
   upload() {
@@ -62,21 +62,38 @@ export class AdminScheduleComponent implements OnInit {
       team_a: this.form.value.team_a,
       team_b: this.form.value.team_b,
       format: this.form.value.format,
-      date: this.form.value.date
+      date: this.form.value.date,
+      live: this.form.value.live
     }
-    this.ScheduleSv.add_match(match).then(res => {
-      this.form.reset()
-    })
+
+    if (!this.current_match) {
+      this.ScheduleSv.add_match(match).then(res => {
+        this.current_match = ''
+        this.form.reset()
+      })
+    } else {
+      match.score_team_a = this.form.value.score_team_a
+      match.score_team_b = this.form.value.score_team_b
+      match.live = this.form.value.live
+
+      this.ScheduleSv.update_match(this.current_match, match).then(res => {
+        this.current_match = ''
+        this.form.reset()
+      })
+    }
+
   }
 
   edit(m) {
-    console.log(m)
-    this.form.controls['status'].setValue(m.status);
-    this.form.controls['team_a'].setValue(m.team_a);
-    this.form.controls['score_team_a'].setValue(m.score_team_a);
-    this.form.controls['team_b'].setValue(m.team_b);
-    this.form.controls['score_team_b'].setValue(m.score_team_b);
-    this.form.controls['format'].setValue(m.format);
-    this.form.controls['date'].setValue(m.date);
+    const { status, team_a, score_team_a, team_b, score_team_b, format, date, live } = m.payload.val()
+    this.current_match = m.key
+    this.form.controls['status'].setValue(status);
+    this.form.controls['team_a'].setValue(team_a);
+    this.form.controls['score_team_a'].setValue(score_team_a);
+    this.form.controls['team_b'].setValue(team_b);
+    this.form.controls['score_team_b'].setValue(score_team_b);
+    this.form.controls['format'].setValue(format);
+    this.form.controls['date'].setValue(date);
+    this.form.controls['live'].setValue(live);
   }
 }
