@@ -1,6 +1,6 @@
 <div class="container">
   <div class="active" *ngIf='matches$ | async as matches'>
-    <h1>Nadchodzące</h1>
+    <h1>Nadchodzące / Na żywo</h1>
     <div class="match-box" *ngFor='let m of matches'>
       <h2> {{m.status}}</h2>
       <div class="info">
@@ -25,14 +25,18 @@
     <div class="match-box" *ngFor='let m of matches'>
       <h2> {{m.status}}</h2>
       <div class="info">
-        <p class="team team-a">{{m.team_a}} <span class="result">{{m.score_team_a}} </span></p>
+        <p [ngClass]="{'team': true, 'winner': m.score_team_b < m.score_team_a}">{{m.team_a}}
+          <span class="result">{{m.score_team_a}} </span>
+        </p>
         <div class="date-box">
           <div class="date">{{m.date.getDate()}}/{{m.date.getMonth() +1 }}/{{m.date.getFullYear()}}
             <span class="hour">{{m.time}}</span>
           </div>
           <div class="format">{{m.format}}</div>
         </div>
-        <p class="team team-b"> <span class="result">{{m.score_team_b}} </span>{{m.team_b}}</p>
+        <p [ngClass]="{'team': true, 'winner': m.score_team_b > m.score_team_a}">
+          <span class=" result">{{m.score_team_b}}</span>{{m.team_b}}
+        </p>
       </div>
     </div>
   </div>

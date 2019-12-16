@@ -72,8 +72,8 @@ export class AdminScheduleComponent implements OnInit {
         this.form.reset()
       })
     } else {
-      match.score_team_a = this.form.value.score_team_a
-      match.score_team_b = this.form.value.score_team_b
+      match.score_team_a = this.form.value.score_team_a ? this.form.value.score_team_a : null
+      match.score_team_b = this.form.value.score_team_b ? this.form.value.score_team_b : null
       match.live = this.form.value.live
 
       this.ScheduleSv.update_match(this.current_match, match).then(res => {

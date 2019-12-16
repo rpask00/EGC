@@ -14,7 +14,7 @@ export class SignupFormComponent implements OnInit {
   constructor() {
     this.form = new FormGroup({
       imie: new FormControl(null, {
-        updateOn:'change',
+        updateOn: 'change',
         validators: [Validators.required]
       }),
       nazwisko: new FormControl(null, {
@@ -22,6 +22,10 @@ export class SignupFormComponent implements OnInit {
         validators: [Validators.required]
       }),
       nick: new FormControl(null, {
+        updateOn: 'change',
+        validators: [Validators.required]
+      }),
+      steam: new FormControl(null, {
         updateOn: 'change',
         validators: [Validators.required]
       })

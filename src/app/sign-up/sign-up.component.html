@@ -28,9 +28,26 @@
     </mat-tab>
   </mat-tab-group>
 
-  <div class="team">
-    <p> Nazwa drużyny</p>
-    <input (keyup)='getForm()' #team>
+  <div class='center'>
+    <form [formGroup]="team_Form">
+
+      <div class="team-info">
+        <mat-form-field class='team'>
+          <input (keyup)='getForm()' matInput formControlName='team' #team placeholder="Nazwa drużyny">
+        </mat-form-field>
+
+        <div class="kontakt">
+          <mat-form-field>
+            <input matInput formControlName='phone' placeholder="Telefon">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput formControlName='email' placeholder="e-mail">
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+    <button [disabled]='!formValid ' color='primary' (click)='sign_up()'
+      mat-raised-button>Zapisz</button>
   </div>
-  <button [disabled]='!formValid' color='primary' (click)='sign_up()' mat-raised-button>Zapisz</button>
 </div>

@@ -1,9 +1,6 @@
-.formBox {}
-
 .container {
-  display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 45vw;
   background-color: rgba($color: rgb(6, 20, 39), $alpha: .99);
   margin: auto;
   padding: 30px;
@@ -11,51 +8,73 @@
   margin-top: 30px;
 }
 
+form {
+  width: 85%;
+
+}
+
+.center {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.team-info {
+  background-color: #042240ea;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 10px 40px 10px 40px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+
+  .team {
+    width: 100%;
+  }
+
+  .kontakt {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    mat-form-field {
+      width: 45%;
+    }
+  }
+}
+
 button {
-  width: 60%;
+  width: 70%;
   margin: 5px auto 20px auto;
 }
 
-.team {
-  padding: 15px;
-  margin: 30px auto 30px auto;
-  // background-color:rgba($color: rgb(6, 20, 39), $alpha: .99);
-  background-color:rgba($color: rgb(6, 16, 34), $alpha: .99);
-  width: 60%;
-  border-radius: 5px;
-  color: #E91E63;
-  display: flex;
-  align-items: center;
-
-  p {
-    text-align: center;
-    font-size: 1.3rem;
-  }
-
-  input {
-    height: 40px;
-    flex-grow: 1;
-    margin-left: 10px;
-    outline: none;
-    font-size: 20px;
-    color: #880E4F;
-    border: none;
-    border-radius: 5px;
-    background-color: rgba($color: rgb(11, 30, 62), $alpha: .99);
-  }
+input {
+  color: goldenrod;
 }
 
 @media only screen and (max-width: 900px) {
-  .team {
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 40px 20px 40px 20px;
 
+  .container {
+    width: 90vw;
+    padding: 5px;
+    margin: 0 auto 40px auto;
+    height: 90vh;
 
-    input {
-      width: 100%;
+    .team {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 6px 3px 6px 3px;
+      height: 10%;
+
+      input {
+        width: 100%;
+      }
     }
+
   }
+
 
 
 }

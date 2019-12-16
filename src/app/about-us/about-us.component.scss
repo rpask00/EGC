@@ -3,15 +3,16 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 7%;
-  background-color: black;
-  opacity: .9;
-  padding: 30px;
+  background-color: #051627fa;
+  padding: 50px;
 }
 
 h1 {
   font-size: 40px;
   text-align: center;
-  color: red;
+  color: #EFAA54;
+  font-family: 'Alatsi', sans-serif;
+
 }
 
 p {
@@ -20,4 +21,18 @@ p {
   letter-spacing: 5px;
   line-height: 45px;
   text-align: justify;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+@media only screen and (max-width:900px) {
+
+  .container {
+    padding: 15px;
+    margin-bottom: 50px;
+  }
+
+  p {
+    font-size: 16px;
+    text-align: center;
+  }
 }

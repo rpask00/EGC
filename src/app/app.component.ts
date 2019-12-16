@@ -33,7 +33,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   ngAfterViewChecked() {
     this.location = window.location.pathname;
     if (window.location.pathname === '/home') {
-      // (this.toolbar.nativeElement as HTMLElement).parentElement.style.backgroundColor = 'transparent';
+      (this.toolbar.nativeElement as HTMLElement).parentElement.style.backgroundColor = 'transparent';
       // (this.toolbar.nativeElement as HTMLElement).parentElement.style.position = 'fixed';
       (this.footer.nativeElement.parentElement as HTMLElement).classList.add('footer-on-home');
       (this.bgImg.nativeElement as HTMLElement).style.opacity = '.7';

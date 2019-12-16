@@ -26,7 +26,14 @@ export class ScheduleService {
   }
 
   update_match(key: string, match: Match) {
-    return this.db.object('/SCHEDULE/' + key).update(match)
+    console.log(match)
+    console.log(key)
+    try {
+      return this.db.object('/SCHEDULE/' + key).update(match)
+
+    } catch (err) {
+      console.log(err)
+    }
   }
 }
 

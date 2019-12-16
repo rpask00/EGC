@@ -78,7 +78,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.canvas.nativeElement.height = innerHeight;
 
     // 2 step-scrolling
-    document.addEventListener('scroll', this.two_step_scroll.bind(this, event))
+    if (innerWidth > 1000)
+      document.addEventListener('scroll', this.two_step_scroll.bind(this, event))
   }
   ngOnDestroy() {
 

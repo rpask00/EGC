@@ -141,8 +141,6 @@ a:hover {
 
 @media only screen and (max-width: 900px) {
 
-  .bgImageBox {}
-
   .toolbar {
     position: static;
     justify-content: center;
@@ -151,10 +149,12 @@ a:hover {
 
     .link {
       width: 100%;
+      display: flex;
+      justify-content: center;
     }
 
     a {
-      transform: scale(.5);
+      transform: scale(.8);
     }
 
   }

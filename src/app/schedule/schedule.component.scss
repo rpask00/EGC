@@ -66,20 +66,17 @@ h1 {
 
 
       .team {
-        color: rgb(90, 14, 60);
+        color: red;
 
         .result {
           padding: 15px;
         }
       }
 
-      .team-a {
+      .winner {
         color: green;
       }
 
-      .team-b {
-        color: red;
-      }
 
       .date {
         color: white;
@@ -166,4 +163,86 @@ h1 {
       }
     }
   }
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    padding: 0;
+    width: 95vw;
+    flex-direction: column;
+  }
+
+  .active {
+    margin-right: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
+
+  .ended {
+    margin-bottom: 30px;
+  }
+
+  .match-box {
+    position: relative;
+    margin-top: 30px;
+
+    h2 {
+      top: -25px;
+      font-size: 17px;
+    }
+
+    .info {
+      font-size: 16px;
+
+      .live {
+        position: absolute;
+        top: 1%;
+        right: 5%;
+
+        p {
+          font-size: 12px;
+
+          span {
+            margin-right: 5px;
+          }
+
+        }
+      }
+
+      .team {
+        min-width: 35%;
+        font-weight: 400;
+        font-family: 'Alatsi', sans-serif;
+      }
+
+      .date-box {
+        display: flex;
+        flex-direction: column;
+        height: 70px;
+        justify-content: center;
+        align-items: space-around;
+
+        .date {
+          font-size: 15px;
+          display: block;
+          font-family: 'Alatsi', sans-serif;
+        }
+
+        .hour {
+          color: #DEB78D
+        }
+
+        .format {
+          display: block;
+          font-size: 10px;
+          color: gold;
+
+          font-family: 'Patua One', cursive;
+        }
+      }
+    }
+  }
+
 }

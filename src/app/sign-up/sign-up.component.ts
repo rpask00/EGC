@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, ViewContainerRef } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TeamsService } from '../SERVICES/teams.service';
 import { Router } from '@angular/router';
 
@@ -14,17 +13,32 @@ export class SignUPComponent implements OnInit {
   @ViewChild('team', { read: ElementRef }) teamName: ElementRef;
   forms: FormGroup[] = [];
   formValid: boolean = false;
+  team_Form: FormGroup
   constructor(
     private teamSv: TeamsService,
     private router: Router
-  ) { }
+  ) {
+    this.team_Form = new FormGroup({
+      team: new FormControl(null, {
+        updateOn: 'blur',
+        validators: [Validators.required]
+      }),
+      phone: new FormControl(null, {
+        updateOn: 'blur',
+        validators: [Validators.required]
+      }),
+      email: new FormControl(null, {
+        updateOn: 'blur',
+        validators: [Validators.required]
+      }),
+    })
+  }
 
   ngOnInit() { }
 
   getForm(e) {
     if (e) this.forms[e.index] = e.form;
-    this.formValid = !this.forms.map(form => form.valid).includes(false) && this.forms.length == 5 && this.teamName.nativeElement.value;
-    console.log(this.forms)
+    this.formValid = !this.forms.map(form => form.valid).includes(false) && this.forms.length == 5 && this.teamName.nativeElement.value && this.team_Form.valid;
   }
 
   sign_up() {
@@ -32,7 +46,9 @@ export class SignUPComponent implements OnInit {
       players: this.forms.map((form: FormGroup) => {
         return form.value
       }),
-      team_name: this.teamName.nativeElement.value
+      team_name: this.team_Form.value.team,
+      phone: this.team_Form.value.phone,
+      email: this.team_Form.value.email
     }
 
     this.teamSv.sing_up_team(team)
