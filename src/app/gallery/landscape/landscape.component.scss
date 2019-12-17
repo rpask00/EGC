@@ -1,15 +1,3 @@
-.box {
-  overflow: hidden;
-  position: relative;
-  color: whitesmoke;
-  width: 20vw;
-  height: 13vw;
-  min-width: 100px;
-  min-height: 67px;
-  // margin-top: 3vw;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 .container {
   margin-top: 2vw;
   margin-bottom: 3vw;
@@ -21,7 +9,15 @@
   top: 20%;
   display: flex;
   transform: translateX(-50%);
+}
 
+.box {
+  overflow: hidden;
+  width: 300px;
+  height: 187px;
+  min-width: 100px;
+  min-height: 67px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 img {
@@ -42,23 +38,6 @@ img {
   // filter: blur(1px);
 }
 
-@media (max-width:500px) {
-
-  /* CSS that should be displayed if width is equal to or less than 800px goes here */
-  .container {
-    margin-top: 2vw;
-    margin-bottom: 2vw;
-    justify-content: center;
-    width: 80vw;
-    position: relative;
-    flex-wrap: wrap;
-    left: 50vw;
-    display: flex;
-  }
-
-}
-
-
 .gallery {
   display: block;
 }
@@ -69,20 +48,23 @@ img {
 }
 
 
+@media (max-width:900px) {
 
-// .box::before {
-//   display: block;
-//   position: absolute;
-//   opacity: .7;
-//   top: 0;
-//   left: 0;
-//   content: '';
-//   width: 20vw;
-//   height: 20vw;
-//   background-color: black;
-// }
+  /* CSS that should be displayed if width is equal to or less than 800px goes here */
+  .container {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    justify-content: center;
+    width: 90vw;
+    position: relative;
+    flex-wrap: wrap;
+    left: 50vw;
+    display: flex;
+  }
 
-// .box::before:hover~.imgBox {
-//   transform: scale(1.3) rotate(3deg);
-//   cursor: pointer;
-// }
+  .box {
+    width: 160px;
+    height: 90px;
+  }
+
+}

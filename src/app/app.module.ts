@@ -43,11 +43,11 @@ const appRoutes: Routes = [
   { path: 'contact', component: ContactComponent, data: { animation: 'contact' }, pathMatch: 'full' },
   { path: 'admin', component: AdminComponent, data: { animation: 'admin' }, pathMatch: 'full', canActivate: [RoutesGuard] },
   { path: 'news', component: NewsComponent, data: { animation: 'news' }, pathMatch: 'full' },
-  { path: 'about', component: AboutUsComponent, data: { animation: 'news' }, pathMatch: 'full' },
+  { path: 'about', component: AboutUsComponent, data: { animation: 'about' }, pathMatch: 'full' },
   { path: 'schedule', component: ScheduleComponent, data: { animation: 'schedule' }, pathMatch: 'full' },
   { path: 'gallery', component: GalleryComponent, data: { animation: 'gallery' }, pathMatch: 'full' },
   { path: 'gallery/:key', component: LandscapeComponent, data: { animation: 'landscape' }, pathMatch: 'full' },
-  { path: 'login', component: LoginComponent, data: { animation: 'landscape' }, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, data: { animation: 'login' }, pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 
 ];

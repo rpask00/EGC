@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/storage';
 import { ImageService } from '../SERVICES/image.service';
 import { Observable } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -52,5 +51,10 @@ export class NewsComponent implements OnInit {
 
   changeExampleCard(news) {
     this.example = news
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+
   }
 }

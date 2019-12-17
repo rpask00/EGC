@@ -1,4 +1,4 @@
-<div class="box" *ngIf='news$ | async as news'>
+<!-- <div class="box" *ngIf='news$ | async as news'>
   <mat-card class="example-card" *ngIf='example'>
     <mat-card-header>
       <div mat-card-avatar class="header-image">
@@ -33,10 +33,25 @@
       </div>
     </mat-card>
   </div>
-</div>
+</div> -->
 
-<!-- <form [formGroup]="form">
-  <input formControlName='images' type="file" (change)="saveImagses($event.target.files)" multiple #input>
-  <input formControlName='title' type="text" #txt>
-  <button (click)='upload()'>Submit</button>
-</form> -->
+
+<div class="container" *ngIf='news$ | async as news' #exampleCard>
+  <div class="main_news" *ngIf='example'>
+    <h1>{{example.title}}</h1>
+    <p class="date">{{timeSrv.getDate(example.date)}}</p>
+    <img *ngIf='example.image | async as img' [src]="img">
+
+    <p class="description">
+      {{example.desc}}
+    </p>
+  </div>
+  <div class="aside_news">
+    <div class="small_info_box" *ngFor='let new of news' (click)='changeExampleCard(new)'>
+      <h2>{{new.title}}</h2>
+      <p class="date">{{timeSrv.getDate(new.date)}}</p>
+      <img *ngIf='new.image | async as img' [src]="img">
+    </div>
+
+  </div>
+</div>

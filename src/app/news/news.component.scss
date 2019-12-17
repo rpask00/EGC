@@ -1,122 +1,235 @@
-.header-image {
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    transform: scale(1.1)
-  }
-}
-
-.example-card {
-  max-width: 1250px;
+.container {
+  width: 100vw;
   height: 100%;
-  box-sizing: border-box;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}
-
-.box {
+  justify-content: space-evenly;
   display: flex;
-  justify-content: center;
-  width: 98vw;
-  height: 85vh;
-  margin: 10px;
-}
-
-img {
-  height: 80%;
-}
-
-.smalCards {
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 24vw;
-  max-width: 350px;
-
-  img {
-    max-height: 140px;
-  }
-}
-
-.small-card {
-  margin-left: 20px;
   margin-top: 10px;
-  width: 20vw;
-  max-width: 250px;
+  margin-bottom: 100px;
 
-  p {
-    display: none;
-  }
-}
-
-
-.small-card:hover {
-  cursor: pointer;
-}
-
-.smTitle {
-  font-size: .8rem;
-}
-
-.smDate {
-  font-size: .5rem;
-}
-
-@media only screen and (max-width: 1280px) {
-  .box {
+  .main_news {
+    display: flex;
+    align-items: center;
     flex-wrap: wrap;
-  }
+    flex-direction: column;
+    text-align: center;
+    width: 70%;
+    background-color: #051627ea;
 
-  .example-card {
-    overflow: visible;
-  }
-
-  .smalCards {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 50px;
-    overflow-y: visible;
-  }
-
-  .small-card {
-    margin-top: 10px;
-    width: 97%;
-    max-width: 97%;
-    margin-left: 0;
-
-    p {
-      display: block;
-      width: 75vw;
-      padding-left: 30px;
+    h1 {
+      color: goldenrod;
     }
 
-  }
-
-  .small-card-image {
-    width: 16vw;
-    height: 9vw;
+    .date {
+      color: whitesmoke;
+    }
 
     img {
-      width: 100%;
-      height: 100%;
+      width: 60%;
+      font-family: 'Heebo',
+        sans-serif;
+    }
+
+    .description {
+      width: 85%;
+      font-size: 25px;
+      color: white;
+      line-height: 40px;
+      font-family: 'Dosis', sans-serif;
     }
   }
 
-  .content-box-sm {
-    justify-content: space-around;
-    align-items: center;
-    display: flex;
-    min-width: 9vw;
-    padding: 0;
+  .aside_news {
+    width: 25%;
+    background-color: #051627ea;
+
+    .small_info_box {
+      // display: flex;
+      width: calc(100% - 40px);
+      padding: 20px;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: dashed 1px rgba(255, 217, 0, 0.449);
+      cursor: pointer;
+
+      img {
+        width: 70%;
+        margin-left: 15%;
+      }
+
+      h2 {
+        text-align: center;
+        color: goldenrod;
+      }
+
+      p {
+        color: white;
+        text-align: center;
+      }
+    }
+
+    .small_info_box:last-child {
+      border: none;
+    }
+
   }
 }
+
+@media only screen and (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    width: 90vw;
+    margin: 10px 5vw 60px 5vw;
+
+    .main_news {
+      img {
+        width: 90%;
+      }
+    }
+
+    .aside_news {
+      width: 100%;
+
+      .small_info_box {
+        border-top: dashed 1px rgba(255, 217, 0, 0.449);
+        border-bottom: none;
+
+        img {
+          display: none;
+        }
+      }
+
+      .small_info_box:last-child {
+        border-top: dashed 1px rgba(255, 217, 0, 0.449);
+      }
+
+    }
+
+    .main_news {
+      width: 100%;
+    }
+  }
+}
+
+
+// .header-image {
+//   overflow: hidden;
+
+//   img {
+//     width: 100%;
+//     height: 100%;
+//     transform: scale(1.1)
+//   }
+// }
+
+// .example-card {
+//   max-width: 1250px;
+//   height: 100%;
+//   box-sizing: border-box;
+//   // overflow-y: scroll;
+//   overflow-x: hidden;
+// }
+
+// .example-header-image {
+//   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+//   background-size: cover;
+// }
+
+// .box {
+//   display: flex;
+//   justify-content: center;
+//   width: 98vw;
+//   height: 85vh;
+//   margin: 10px;
+// }
+
+// img {
+//   height: 80%;
+// }
+
+// .smalCards {
+//   // overflow-y: scroll;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   width: 24vw;
+//   max-width: 350px;
+
+//   img {
+//     max-height: 140px;
+//   }
+// }
+
+// .small-card {
+//   margin-left: 20px;
+//   margin-top: 10px;
+//   width: 20vw;
+//   max-width: 250px;
+
+//   p {
+//     display: none;
+//   }
+// }
+
+
+// .small-card:hover {
+//   cursor: pointer;
+// }
+
+// .smTitle {
+//   font-size: .8rem;
+// }
+
+// .smDate {
+//   font-size: .5rem;
+// }
+
+// @media only screen and (max-width: 1280px) {
+//   .box {
+//     flex-wrap: wrap;
+//   }
+
+//   .example-card {
+//     overflow: visible;
+//   }
+
+//   .smalCards {
+//     margin-left: auto;
+//     margin-right: auto;
+//     width: 100%;
+//     max-width: 100%;
+//     margin-bottom: 50px;
+//     overflow-y: visible;
+//   }
+
+//   .small-card {
+//     margin-top: 10px;
+//     width: 97%;
+//     max-width: 97%;
+//     margin-left: 0;
+
+//     p {
+//       display: block;
+//       width: 75vw;
+//       padding-left: 30px;
+//     }
+
+//   }
+
+//   .small-card-image {
+//     width: 16vw;
+//     height: 9vw;
+
+//     img {
+//       width: 100%;
+//       height: 100%;
+//     }
+//   }
+
+//   .content-box-sm {
+//     justify-content: space-around;
+//     align-items: center;
+//     display: flex;
+//     min-width: 9vw;
+//     padding: 0;
+//   }
+// }

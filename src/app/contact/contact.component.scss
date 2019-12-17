@@ -2,12 +2,21 @@ agm-map {
   height: 100%;
 }
 
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 45px;
+  text-shadow: 4px 3px 0 #7A7A7A;
+  font-family: 'Dosis',
+    sans-serif;
+}
+
 .map {
   height: 70vh;
-  top: 10%;
+  top: 20%;
   position: absolute;
-  width: 72vw;
-  max-width: 1000px;
+  width: 90vw;
+  // max-width: 1000px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 10px;

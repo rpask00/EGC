@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, AfterContentChecked, ViewChild, ElementRef, ViewContainerRef } from '@angular/core';
 import { slide } from './route-animations';
 import { RouterOutlet, ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from './SERVICES/login.service';
@@ -13,12 +13,15 @@ import { Observable } from 'rxjs';
     slide
   ]
 })
-export class AppComponent implements OnInit, AfterViewChecked {
+export class AppComponent implements OnInit, AfterViewChecked, AfterContentChecked {
 
   @ViewChild('toolbar', { read: ElementRef }) toolbar: ElementRef
   @ViewChild('footer', { read: ElementRef }) footer: ElementRef
   @ViewChild('bgImg', { read: ElementRef }) bgImg: ElementRef
   fireUser$: Observable<any>
+  bgcSrc = '../assets/TloStronyEGC.png';
+  previousScrollPos = 5000
+  scrollLock: boolean = false
 
   constructor(
     private router: Router,
@@ -30,9 +33,18 @@ export class AppComponent implements OnInit, AfterViewChecked {
 
   width: number = window.innerWidth;
   location: string;
+
+  ngAfterContentChecked() {
+    if (this.router.url != '/about')
+      this.bgcSrc = '../assets/TloStronyEGC.png'
+    else this.bgcSrc = '../assets/o-nas.png'
+
+  }
+
   ngAfterViewChecked() {
+
     this.location = window.location.pathname;
-    if (window.location.pathname === '/home') {
+    if (window.location.pathname === '/home' || window.location.pathname === '/about') {
       (this.toolbar.nativeElement as HTMLElement).parentElement.style.backgroundColor = 'transparent';
       // (this.toolbar.nativeElement as HTMLElement).parentElement.style.position = 'fixed';
       (this.footer.nativeElement.parentElement as HTMLElement).classList.add('footer-on-home');
@@ -48,6 +60,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
   ngOnInit() {
     window.addEventListener('resize', () => this.width = window.innerWidth);
   }
+  ngOnDestroy() {
+  }
+
 
 
   prepareRoute(outlet: RouterOutlet) {

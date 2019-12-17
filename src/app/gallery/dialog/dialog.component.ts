@@ -15,13 +15,12 @@ export class DialogComponent implements OnInit {
 
   ngOnInit() {
     document.addEventListener('click', e => {
-      console.log()
       if (this.click && !(e.target instanceof HTMLImageElement)) this.onClose(this.dialogRef)
       this.click++;
     })
 
     document.addEventListener('keyup', e => {
-
+      console.log('swipe')
       if (e.keyCode == 37)
         this.swipeLeft()
       else if (e.keyCode == 39)

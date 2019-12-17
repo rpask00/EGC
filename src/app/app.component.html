@@ -1,7 +1,8 @@
 <div class="bgImageBox" #bgImg>
-  <img src="../assets/TloStronyEGC.png" class="bgImage" *ngIf="router.url != '/about'">
-  <img src="../assets/logo.png" class='logo' *ngIf="router.url == '/home'">
-  <img src='../assets/o-nas.png' *ngIf="router.url == '/about'">
+  <!-- <img src="../assets/TloStronyEGC.png" class="bgImage" *ngIf="['/about', '/news'].indexOf(router.url) == -1"> -->
+  <img [src]="bgcSrc" class="bgImage">
+  <img src=" ../assets/logo.png" class='logo' *ngIf="router.url == '/home'">
+  <!-- <img src='../assets/o-nas.png' *ngIf="router.url == '/about'"> -->
 </div>
 <mat-toolbar class='toolbar'>
   <div class="link" #toolbar>

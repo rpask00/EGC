@@ -1,21 +1,23 @@
-import { Component, OnInit, ElementRef, ViewChild, NgZone, ViewContainerRef, OnDestroy } from '@angular/core';
-import * as dat from 'dat.gui'
-import { Wave, Color, backGround, ColorRGB } from '../MODELS/wave.model';
-import { delay } from 'q';
+import { Component, AfterViewChecked, OnInit, ElementRef, ViewChild, NgZone, ViewContainerRef, OnDestroy } from '@angular/core';
+import { Wave, backGround, ColorRGB } from '../MODELS/wave.model';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+
+export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   @ViewChild('canvas', { read: ElementRef }) canvas: ElementRef<HTMLCanvasElement>;
   @ViewChild('signupbox', { read: ElementRef }) signupbox: ElementRef
+  private ctx: CanvasRenderingContext2D;
   previousScrollPos = 5000
   scrollLock: boolean = false
-  private ctx: CanvasRenderingContext2D;
   amplidute: number = 0;
   gui;
+
   wave: Wave = {
     y: 573,
     length: 100,
@@ -38,7 +40,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   increment: number;
-  constructor(private ngZone: NgZone) {
+  constructor(
+    private ngZone: NgZone,
+    private router: Router,
+
+  ) {
     this.increment = this.wave.frequency;
     // this.gui = new dat.GUI();
     // const waveFolder = this.gui.addFolder('wave')
@@ -66,7 +72,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     // bgcFolder.open()
   }
+  ngAfterViewChecked() {
+    // if (this.router.url != '/home') {
+    //   console.log('deded')
+    //   document.removeEventListener('scroll', this.two_step_scroll.bind(this, event))
+    // }
 
+  }
   ngOnInit() {
     this.animate.call(this)
     // this.drawImage()
@@ -78,40 +90,41 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.canvas.nativeElement.height = innerHeight;
 
     // 2 step-scrolling
-    if (innerWidth > 1000)
-      document.addEventListener('scroll', this.two_step_scroll.bind(this, event))
+    // if (innerWidth > 1000)
+    //   document.addEventListener('scroll', this.two_step_scroll.bind(this, event))
   }
   ngOnDestroy() {
-
-    document.removeEventListener('scroll', this.two_step_scroll.bind(this, event))
+    // document.removeEventListener('scroll', this.two_step_scroll.bind(this, event))
   }
 
-  private two_step_scroll(e) {
-    console.log('scroll')
-    if (!this.scrollLock) {
-      if (window.scrollY > this.previousScrollPos) {
-        window.scrollTo({
-          top: 1000,
-          behavior: 'smooth'
-        })
-        this.scrollLock = true
-        setTimeout(() => {
-          this.scrollLock = false
-        }, 500)
-      } else {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        })
-        this.scrollLock = true
-        setTimeout(() => {
-          this.scrollLock = false
-        }, 500)
+  // private two_step_scroll(e) {
+  //   console.log('scroll')
+  //   if (!this.scrollLock) {
+  //     if (window.scrollY > this.previousScrollPos) {
+  //       window.scrollTo({
+  //         top: 1000,
+  //         behavior: 'smooth'
+  //       })
+  //       this.scrollLock = true
+  //       setTimeout(() => {
+  //         this.scrollLock = false
+  //       }, 500)
+  //     } else {
+  //       window.scrollTo({
+  //         top: 0,
+  //         behavior: 'smooth'
+  //       })
+  //       this.scrollLock = true
+  //       setTimeout(() => {
+  //         this.scrollLock = false
+  //       }, 500)
 
-      }
-    }
-    this.previousScrollPos = window.scrollY
-  }
+  //     }
+  //   }
+  //   this.previousScrollPos = window.scrollY
+  // }
+
+
   wobble() {
     this.ctx = this.canvas.nativeElement.getContext('2d')
     this.ctx.beginPath()

@@ -32,6 +32,7 @@ i {
   position: fixed;
   bottom: 0;
   z-index: 2;
+  background-color: #01040895;
 
 }
 
@@ -114,14 +115,15 @@ a:hover {
   position: fixed;
   z-index: -3;
   opacity: .9;
+  width: 100%;
 
   img {
-    height: 99.5vh;
-    height: 120vh;
+    // height: 120vh;
     position: relative;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) scale(1.01);
+    transition: .2s;
   }
 
   .logo {

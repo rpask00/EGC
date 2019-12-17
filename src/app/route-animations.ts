@@ -14,7 +14,7 @@ import {
 
 export const slide =
     trigger('routeAnimations', [
-        transition(`home => news, home => contact, home => gallery,  news => contact, news => gallery, contact => gallery`, [
+        transition(`home => news, home => contact, home => about,home => schedule, home => gallery, news => contact,news => about, news => schedule, news => gallery, contact => about, contact => schedule, contact => gallery, about => schedule, about => gallery, schedule => gallery`, [
             query(':enter, :leave', [
                 style({
                     position: 'absolute',
@@ -29,7 +29,7 @@ export const slide =
             ])
         ]),
 
-        transition(`gallery => contact, gallery => news,  contact => news, landscape => gallery, landscape => contact, landscape => news`, [
+        transition(`gallery => schedule, gallery => about, gallery => contact, gallery => news, landscape => gallery, landscape => schedule, landscape => about, landscape => contact, landscape => news, schedule => about, schedule => contact, schedule => news, about => contact, about => news, contact => news`, [
             query(':enter, :leave', [
                 style({
                     position: 'absolute',

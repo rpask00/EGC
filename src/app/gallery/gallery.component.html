@@ -3,12 +3,12 @@
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title>{{label.key}}</mat-card-title>
-        <mat-card-subtitle>{{label.quantity}} photos</mat-card-subtitle>
+        <mat-card-subtitle>{{label.quantity}} zdjęć</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image [src]='label.key.slice(0,2) == "CS" ? CSimg : LOLimg' alt="LOL">
 
       <mat-card-actions>
-        <a mat-button [routerLink]='[ label.key]'>Open</a>
+        <a mat-button [routerLink]='[ label.key]'>Otwórz</a>
       </mat-card-actions>
     </mat-card>
   </div>

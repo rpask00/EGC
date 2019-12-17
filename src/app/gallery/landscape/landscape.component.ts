@@ -41,8 +41,8 @@ export class LandscapeComponent implements OnInit {
     if (this.dialog.openDialogs.length) return
 
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '60vw',
-      height: '40vw',
+      width: innerWidth < 900 ? '95vw' : '65vw',
+      height: innerWidth < 900 ? '65vw' : '45vw',
       data: {
         img,
         imgArr

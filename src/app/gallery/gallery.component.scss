@@ -1,11 +1,12 @@
 .container {
-  width: 65vw;
+  width: 60vw;
   display: flex;
   flex-wrap: wrap;
   left: 50%;
   position: absolute;
   justify-content: space-between;
   transform: translate(-50%, 0);
+  margin-bottom: 60px;
 }
 
 .card {
@@ -21,4 +22,17 @@
 .example-card {
   background-color: #051627ea;
 
+}
+
+
+@media only screen and (max-width:900px) {
+
+  .container {
+    width: 80vw;
+    justify-content: center;
+  }
+
+  .card {
+    flex-basis: 90%;
+  }
 }
