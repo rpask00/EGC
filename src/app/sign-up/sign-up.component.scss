@@ -4,9 +4,15 @@
   background-color: rgba($color: rgb(6, 20, 39), $alpha: .99);
   margin: auto;
   padding: 30px;
-  border-radius: 3px;
   margin-top: 30px;
   min-height: 560px;
+
+  h1 {
+    color: whitesmoke;
+    text-align: center;
+    font-family: 'Alatsi', sans-serif;
+    letter-spacing: 2px;
+  }
 }
 
 form {
@@ -27,7 +33,6 @@ form {
   flex-direction: column;
   flex-wrap: wrap;
   padding: 10px 40px 10px 40px;
-  border-radius: 5px;
   margin-bottom: 20px;
   box-sizing: border-box;
 

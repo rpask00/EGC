@@ -3,7 +3,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { News } from '../MODELS/news.model';
-import { switchMap, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { ImageService } from './image.service';
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,6 @@
-import { Component, OnInit, AfterViewChecked, AfterContentChecked, ViewChild, ElementRef, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, AfterContentChecked, ViewChild, ElementRef} from '@angular/core';
 import { slide } from './route-animations';
-import { RouterOutlet, ActivatedRoute, Router } from '@angular/router';
+import { RouterOutlet,Router } from '@angular/router';
 import { LoginService } from './SERVICES/login.service';
 import { Observable } from 'rxjs';
 

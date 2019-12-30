@@ -18,6 +18,16 @@ body {
 }
 
 
+.description {
+  a {
+    color: red;
+  }
+
+  a:visited {
+    color: yellow;
+  }
+
+}
 
 .colorFull {
   color: rgb(240, 44, 44);
@@ -47,7 +57,6 @@ body {
 }
 
 .dashboard {
-  border-radius: 10px;
   background-color: rgba($color: #474747, $alpha: .9);
   padding: 30px;
 }

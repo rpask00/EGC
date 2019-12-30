@@ -1,20 +1,28 @@
-import { Component, AfterViewChecked, OnInit, ElementRef, ViewChild, NgZone, ViewContainerRef, OnDestroy } from '@angular/core';
-import { Wave, backGround, ColorRGB } from '../MODELS/wave.model';
-import { Router } from '@angular/router';
+import {
+  Component,
+  AfterViewChecked,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  NgZone,
+  OnDestroy
+} from "@angular/core";
+import { Wave, backGround, ColorRGB } from "../MODELS/wave.model";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"]
 })
-
 export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
-
-  @ViewChild('canvas', { read: ElementRef }) canvas: ElementRef<HTMLCanvasElement>;
-  @ViewChild('signupbox', { read: ElementRef }) signupbox: ElementRef
+  @ViewChild("canvas", { read: ElementRef }) canvas: ElementRef<
+    HTMLCanvasElement
+  >;
+  @ViewChild("signupbox", { read: ElementRef }) signupbox: ElementRef;
   private ctx: CanvasRenderingContext2D;
-  previousScrollPos = 5000
-  scrollLock: boolean = false
+  previousScrollPos = 5000;
+  scrollLock: boolean = false;
   amplidute: number = 0;
   gui;
 
@@ -22,29 +30,25 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
     y: 573,
     length: 100,
     amplitude: 27,
-    frequency: 0.02,
-  }
+    frequency: 0.02
+  };
 
   color: ColorRGB = {
     r: 100,
     g: 0,
     b: 255,
-    a: 1,
-  }
+    a: 1
+  };
 
   backGround: backGround = {
     r: 0,
     g: 0,
     b: 0,
     a: 0
-  }
+  };
 
   increment: number;
-  constructor(
-    private ngZone: NgZone,
-    private router: Router,
-
-  ) {
+  constructor(private ngZone: NgZone, private router: Router) {
     this.increment = this.wave.frequency;
     // this.gui = new dat.GUI();
     // const waveFolder = this.gui.addFolder('wave')
@@ -63,7 +67,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
 
     // colorFolder.open()
 
-
     // const bgcFolder = this.gui.addFolder('background')
     // bgcFolder.add(this.backGround, 'r', 0, 255)
     // bgcFolder.add(this.backGround, 'g', 0, 255)
@@ -77,15 +80,14 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
     //   console.log('deded')
     //   document.removeEventListener('scroll', this.two_step_scroll.bind(this, event))
     // }
-
   }
   ngOnInit() {
-    this.animate.call(this)
+    this.animate.call(this);
     // this.drawImage()
-    addEventListener('resize', () => {
+    addEventListener("resize", () => {
       this.canvas.nativeElement.width = innerWidth + 400;
       this.canvas.nativeElement.height = innerHeight;
-    })
+    });
     this.canvas.nativeElement.width = innerWidth;
     this.canvas.nativeElement.height = innerHeight;
 
@@ -124,13 +126,18 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
   //   this.previousScrollPos = window.scrollY
   // }
 
-
   wobble() {
-    this.ctx = this.canvas.nativeElement.getContext('2d')
-    this.ctx.beginPath()
-    this.ctx.moveTo(0, innerHeight / 2)
+    this.ctx = this.canvas.nativeElement.getContext("2d");
+    this.ctx.beginPath();
+    this.ctx.moveTo(0, innerHeight / 2);
     for (let i = -100; i < innerWidth; i++) {
-      this.ctx.lineTo(i, this.wave.y + Math.sin(i / this.wave.length + this.increment) * this.wave.amplitude * Math.sin(this.increment))
+      this.ctx.lineTo(
+        i,
+        this.wave.y +
+          Math.sin(i / this.wave.length + this.increment) *
+            this.wave.amplitude *
+            Math.sin(this.increment)
+      );
     }
 
     // this.ctx.strokeStyle = `hsla(
@@ -143,26 +150,31 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
         ${this.color.r * Math.sin(this.increment)},
         ${this.color.g},
         ${this.color.b},
-        ${this.color.a})`
+        ${this.color.a})`;
 
     this.ctx.fillStyle = `rgba(
           ${this.backGround.r},
           ${this.backGround.g},
           ${this.backGround.b},
-          ${this.backGround.a * Math.abs(Math.sin(this.increment)) * .2 + 0.1})`
-    this.ctx.stroke()
-
+          ${this.backGround.a * Math.abs(Math.sin(this.increment)) * 0.2 +
+            0.1})`;
+    this.ctx.stroke();
   }
 
   animate() {
-    this.ctx = this.canvas.nativeElement.getContext('2d')
+    this.ctx = this.canvas.nativeElement.getContext("2d");
     // this.drawImage()
-    this.ctx.fillRect(0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height)
+    this.ctx.fillRect(
+      0,
+      0,
+      this.canvas.nativeElement.width,
+      this.canvas.nativeElement.height
+    );
     this.ctx.fillStyle = `rgba(
       ${this.backGround.r},
       ${this.backGround.g},
       ${this.backGround.b},
-      ${this.backGround.a})`
+      ${this.backGround.a})`;
     this.wobble();
 
     const id = requestAnimationFrame(this.animate.bind(this));
@@ -170,10 +182,9 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   scroll() {
-    this.signupbox.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    this.signupbox.nativeElement.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
   }
 }
-
-
-
-
