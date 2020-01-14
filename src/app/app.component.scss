@@ -127,14 +127,11 @@ a:hover {
   }
 
   .logo {
-    min-width: 200px;
-    min-height: 200px;
-    width: 17vw;
-    height: 17vw;
+    width: 25vw;
     position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 8%;
+    opacity: .8;
+    // background-color: rgba(0, 0, 0, 0.966);
   }
 
 }
@@ -156,8 +153,14 @@ a:hover {
     }
 
     a {
+      width: 300px;
       transform: scale(.8);
     }
 
+  }
+
+
+  .logo {
+    min-width: 300px;
   }
 }

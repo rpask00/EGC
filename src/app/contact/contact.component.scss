@@ -5,14 +5,13 @@ agm-map {
 h1 {
   color: white;
   text-align: center;
-  font-size: 45px;
-  text-shadow: 4px 3px 0 #7A7A7A;
-  font-family: 'Dosis',
+  font-size: 40px;
+  font-family: 'Poppins',
     sans-serif;
 }
 
 .map {
-  height: 70vh;
+  height: 60vh;
   top: 20%;
   position: absolute;
   width: 90vw;
@@ -23,38 +22,20 @@ h1 {
   overflow: hidden;
 }
 
-.firstLine {
-  display: flex;
-  justify-content: space-between;
-
-  .upper {
-    width: 45%;
-  }
-}
-
-.lower {
-  width: 100%;
-
+h4 {
+  font-family: 'Heebo',
+    sans-serif;
+  color: whitesmoke;
+  text-align: center;
+  margin-top: 70vh;
 }
 
 
-.form {
-  border-radius: 10px;
-  color: aliceblue;
-  background-color: #212121;
-  opacity: .9;
-  width: 70vw;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5vh;
-  height: 70vh;
-  padding: 4vw 4vw 30px 4vw;
+@media only screen and (max-width: 900px) {
 
-  button {
-    position: relative;
-    left: 50%;
-    width: 40%;
-    transform: translateX(-50%);
+  h1 {
+    font-size: 30px;
+
   }
+
 }

@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-} from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { NewsService } from "src/app/SERVICES/news.service";
 import { TimeService } from "src/app/SERVICES/time.service";
@@ -23,7 +18,7 @@ export class AdminNewsComponent implements OnInit {
   lolUrl =
     "https://res.cloudinary.com/teepublic/image/private/s--SRABn1B---/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1539296610/production/designs/3303813_0.jpg";
 
-  @ViewChild("avatar", { read: ElementRef }) avatar: ElementRef;
+  @ViewChild("avatar", { read: ElementRef, static: false }) avatar: ElementRef;
 
   constructor(private newsSrv: NewsService, private timeSrv: TimeService) {
     this.form = new FormGroup({

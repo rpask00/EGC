@@ -1,12 +1,22 @@
 .container {
   width: 97vw;
-  min-height: 60vh;
+  min-height: 85vh;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
   display: flex;
   padding: 10px;
   margin-bottom: 50px;
+
+  h3 {
+    text-align: center;
+    color: rgba(245, 245, 245, 0.517);
+    font-family: 'Alatsi',
+      sans-serif;
+    letter-spacing: 13px;
+    margin-top: 40px;
+  }
+
 }
 
 h1 {

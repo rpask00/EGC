@@ -13,7 +13,9 @@ export class GalleryComponent implements OnInit {
 
   labels$: Observable<{ key: string; quantity: number; }[]>
   CSimg: string = 'https://menworld.pl/wp-content/uploads/2019/11/csgo.jpg'
-  LOLimg: string = 'https://eune.leagueoflegends.com/sites/default/files/styles/scale_xlarge/public/upload/league-newlogo-banner.jpg?itok=oErYYqim';
+  LOLimg: string = 'https://venturebeat.com/wp-content/uploads/2019/09/league-of-legends.jpg?fit=400%2C219&strip=all';
+
+
   constructor(
     private imgSrv: ImageService,
     private router: Router

@@ -16,10 +16,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
-  @ViewChild("canvas", { read: ElementRef }) canvas: ElementRef<
-    HTMLCanvasElement
-  >;
-  @ViewChild("signupbox", { read: ElementRef }) signupbox: ElementRef;
+  @ViewChild("canvas", { read: ElementRef, static: true }) canvas: ElementRef<HTMLCanvasElement>;
+  @ViewChild("signupbox", { read: ElementRef, static: false }) signupbox: ElementRef;
   private ctx: CanvasRenderingContext2D;
   previousScrollPos = 5000;
   scrollLock: boolean = false;
@@ -134,9 +132,9 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
       this.ctx.lineTo(
         i,
         this.wave.y +
-          Math.sin(i / this.wave.length + this.increment) *
-            this.wave.amplitude *
-            Math.sin(this.increment)
+        Math.sin(i / this.wave.length + this.increment) *
+        this.wave.amplitude *
+        Math.sin(this.increment)
       );
     }
 
@@ -157,7 +155,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
           ${this.backGround.g},
           ${this.backGround.b},
           ${this.backGround.a * Math.abs(Math.sin(this.increment)) * 0.2 +
-            0.1})`;
+      0.1})`;
     this.ctx.stroke();
   }
 

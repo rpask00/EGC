@@ -25,7 +25,8 @@ export class NewsComponent implements OnInit, AfterViewChecked {
   form: FormGroup;
   images: File[] = [];
 
-  @ViewChild("description", { read: ElementRef }) description: ElementRef;
+  @ViewChild("description", { read: ElementRef, static: false })
+  description: ElementRef;
 
   constructor(
     private imageSrv: ImageService,
