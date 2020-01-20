@@ -1,13 +1,67 @@
 h1 {
-  color: whitesmoke;
+  color: rgba(245, 245, 245, 0.551);
   text-align: center;
-  font-size: 50px;
+  font-size: 3vw;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
-h2 {
-  font-size: 70px;
-  margin-top: 450px;
-  color: red;
+p {
+  font-size: 4vw;
+  margin-top: 50px;
   text-align: center;
+  color: rgba(218, 165, 32, 0.489);
+  max-width: 70vw;
+
+  span {
+    font-size: 6vw;
+    color: goldenrod;
+    font-family: 'Varela Round', sans-serif;
+  }
+
+
+  font-family: 'Noto Sans TC',
+  sans-serif;
+}
+
+h4 {
+  margin-top: 220px;
+  color: rgba(245, 245, 245, 0.7);
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+}
+
+
+.box {
+  width: 70vw;
+  min-height: 60vh;
+  background-color: #051627a8;
+  margin: auto;
+  margin-top: 20px;
+  padding: 50px;
+
+}
+
+
+
+@media only screen and (max-width: 900px) {
+
+  h1 {
+    font-size: 5vw;
+  }
+
+
+  h2 {
+    font-size: 9vw;
+
+    span {
+      font-size: 11vw;
+    }
+
+  }
+
+  h4 {
+    font-size: 5vw;
+  }
+
 }

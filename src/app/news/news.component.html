@@ -4,10 +4,7 @@
     <p class="date">{{timeSrv.getDate(example.date)}}</p>
     <img *ngIf='example.image | async as img' [src]="img">
 
-    <p class="description" #description>
-      <!-- {{example.desc}} -->
-      <a href="efsefs">example</a>
-    </p>
+    <p class="description" innerHTML="{{example.desc}}"></p>
   </div>
   <div class="aside_news">
     <div class="small_info_box" *ngFor='let new of news' (click)='changeExampleCard(new)'>
@@ -15,6 +12,6 @@
       <p class="date">{{timeSrv.getDate(new.date)}}</p>
       <img *ngIf='new.image | async as img' [src]="img">
     </div>
-
   </div>
 </div>
+

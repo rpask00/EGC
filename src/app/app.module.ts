@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, enableProdMode } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { AllMaterialModule } from "./all-material.module";
 import { HomeComponent } from "./home/home.component";
@@ -35,6 +35,8 @@ import { RoutesGuard } from "./guards/routes.guard";
 import { LoginComponent } from "./admin/login/login.component";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AdminScheduleComponent } from "./admin/admin-schedule/admin-schedule.component";
+import { AdminTeamsComponent } from './admin/admin-teams/admin-teams.component';
+
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -138,7 +140,8 @@ const appRoutes: Routes = [
     SignupSuccedComponent,
     AboutUsComponent,
     LoginComponent,
-    AdminScheduleComponent
+    AdminScheduleComponent,
+    AdminTeamsComponent,
   ],
   imports: [
     BrowserModule,

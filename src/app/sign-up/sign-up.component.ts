@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { TeamsService } from "../SERVICES/teams.service";
 import { Router } from "@angular/router";
+import { CustomValidator } from '../validators/custom-validators';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: "app-sign-up",
@@ -13,24 +15,31 @@ export class SignUPComponent implements OnInit {
   forms: FormGroup[] = [];
   formValid: boolean = false;
   team_Form: FormGroup;
-  constructor(private teamSv: TeamsService, private router: Router) {
+  checked: boolean = false;
+  constructor(
+    private teamSv: TeamsService,
+    private router: Router,
+  ) {
     this.team_Form = new FormGroup({
       team: new FormControl(null, {
-        updateOn: "blur",
+        updateOn: "change",
         validators: [Validators.required]
       }),
       phone: new FormControl(null, {
-        updateOn: "blur",
-        validators: [Validators.required]
+        updateOn: "change",
+        validators: [
+          Validators.required,
+          CustomValidator.onlyNumbers
+        ]
       }),
       email: new FormControl(null, {
-        updateOn: "blur",
+        updateOn: "change",
         validators: [Validators.required]
       })
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   getForm(e) {
     if (e) this.forms[e.index] = e.form;
@@ -38,8 +47,10 @@ export class SignUPComponent implements OnInit {
       !this.forms.map(form => form.valid).includes(false) &&
       this.forms.length == 5 &&
       this.teamName.nativeElement.value &&
-      this.team_Form.valid;
+      this.team_Form.valid &&
+      this.checked
   }
+
 
   sign_up() {
     const team = {
@@ -57,4 +68,5 @@ export class SignUPComponent implements OnInit {
       `/sign-up-succed/${this.teamName.nativeElement.value}`
     );
   }
+
 }

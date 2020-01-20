@@ -18,21 +18,19 @@ import { TimeService } from "../SERVICES/time.service";
   templateUrl: "./news.component.html",
   styleUrls: ["./news.component.scss"]
 })
-export class NewsComponent implements OnInit, AfterViewChecked {
+export class NewsComponent implements OnInit {
   example: News;
   imgArr: Observable<string[]>;
   news$: Observable<News[]>;
   form: FormGroup;
   images: File[] = [];
 
-  @ViewChild("description", { read: ElementRef, static: false })
-  description: ElementRef;
 
   constructor(
     private imageSrv: ImageService,
     private newsSrv: NewsService,
     private timeSrv: TimeService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -48,11 +46,6 @@ export class NewsComponent implements OnInit, AfterViewChecked {
     this.news$.pipe(take(1)).subscribe(news => {
       this.example = news[0];
     });
-  }
-  ngAfterViewChecked() {
-    // this makes links works
-    if (this.description)
-      this.description.nativeElement.innerHTML = this.example.desc;
   }
 
   saveImagses(images: FileList) {

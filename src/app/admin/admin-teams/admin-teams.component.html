@@ -1,0 +1,15 @@
+<div class="dashboard" *ngIf='teams$ | async as teams '>
+  <div class="team" *ngFor="let t of teams; let i = index">
+    <div class=" teamname">
+      <p>{{i+1}}. {{ t.team_name}}</p>
+      <!-- <p class="delete" (click)='delete_team(t)'>Usuń</p> -->
+    </div>
+    <div class="players">
+      <p *ngFor='let p of t.players'>{{p.nick}}</p>
+    </div>
+    <div class="contact">
+      <p>{{t.email}}</p>
+      <p>{{t.phone}}</p>
+    </div>
+  </div>
+</div>

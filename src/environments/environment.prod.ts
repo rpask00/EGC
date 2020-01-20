@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   firebaseConfig : {
     apiKey: "AIzaSyDNtLpeBuJr69aljVdfAanu9jKo9AGSg30",
     authDomain: "ezsat-b3013.firebaseapp.com",
