@@ -16,7 +16,6 @@ export class AdminTeamsComponent implements OnInit {
 
   ngOnInit() {
     this.teams$ = this.db.list('/teams').valueChanges()
-
     this.teams$.subscribe(console.log)
   }
 

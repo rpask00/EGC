@@ -86,4 +86,8 @@ export class ImageService {
       )
   }
 
+  getImage(path: string): Observable<any> {
+    return this.fireStorage.ref(path).getDownloadURL()
+  }
+
 }

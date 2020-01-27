@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ImageService } from '../SERVICES/image.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { FirebaseStorage } from '@angular/fire';
 
 @Component({
   selector: 'app-gallery',
@@ -12,18 +13,24 @@ export class GalleryComponent implements OnInit {
 
 
   labels$: Observable<{ key: string; quantity: number; }[]>
-  CSimg: string = 'https://menworld.pl/wp-content/uploads/2019/11/csgo.jpg'
-  LOLimg: string = 'https://venturebeat.com/wp-content/uploads/2019/09/league-of-legends.jpg?fit=400%2C219&strip=all';
+  CSimg: Observable<any>
+  LOLimg: Observable<any>
 
 
   constructor(
     private imgSrv: ImageService,
-    private router: Router
+    private router: Router,
+    // private fireStorage: FirebaseStorage
   ) { }
 
   ngOnInit() {
     this.labels$ = this.imgSrv.getLabels()
+    this.CSimg = this.imgSrv.getImage('COVER/cs-gallery.png')
+    this.LOLimg = this.imgSrv.getImage('COVER/lol-gallery.png')
+
+
   }
 
 
 }
+
