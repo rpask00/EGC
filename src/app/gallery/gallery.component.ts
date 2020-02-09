@@ -28,7 +28,6 @@ export class GalleryComponent implements OnInit {
     this.CSimg = this.imgSrv.getImage('COVER/cs-gallery.png')
     this.LOLimg = this.imgSrv.getImage('COVER/lol-gallery.png')
 
-
   }
 
 
