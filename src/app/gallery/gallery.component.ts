@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ImageService } from '../SERVICES/image.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { FirebaseStorage } from '@angular/fire';
 
 @Component({
   selector: 'app-gallery',
@@ -20,7 +19,6 @@ export class GalleryComponent implements OnInit {
   constructor(
     private imgSrv: ImageService,
     private router: Router,
-    // private fireStorage: FirebaseStorage
   ) { }
 
   ngOnInit() {
