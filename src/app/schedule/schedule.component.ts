@@ -11,8 +11,8 @@ import { map } from 'rxjs/operators';
 })
 export class ScheduleComponent implements OnInit {
 
-  private matches$: Observable<Match[]>
-  private matches_ended$: Observable<Match[]>
+  matches$: Observable<Match[]>
+  matches_ended$: Observable<Match[]>
   constructor(
     private ScheduleSv: ScheduleService
   ) { }

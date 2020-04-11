@@ -13,7 +13,7 @@ export class AdminScheduleComponent implements OnInit {
 
   form: FormGroup
   private matches$: Observable<Match[]>
-  private matches_payload$: Observable<any>
+  matches_payload$: Observable<any>
   private current_match: string = ''
   constructor(
     private ScheduleSv: ScheduleService

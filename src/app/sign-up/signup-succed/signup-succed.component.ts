@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SignupSuccedComponent implements OnInit {
 
-  private team: String
+  team: String
 
   constructor(
     private acRoute: ActivatedRoute

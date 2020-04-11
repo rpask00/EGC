@@ -19,9 +19,10 @@ import { Observable } from "rxjs";
 })
 export class AppComponent
   implements OnInit, AfterViewChecked, AfterContentChecked {
-  @ViewChild("toolbar", { read: ElementRef, static: false }) toolbar: ElementRef;
-  @ViewChild("footer", { read: ElementRef, static: false }) footer: ElementRef;
-  @ViewChild("bgImg", { read: ElementRef, static: false }) bgImg: ElementRef;
+  @ViewChild("toolbar", { read: ElementRef }) toolbar: ElementRef;
+  @ViewChild("footer", { read: ElementRef }) footer: ElementRef;
+  @ViewChild("bgImg", { read: ElementRef }) bgImg: ElementRef;
+
   fireUser$: Observable<any>;
   bgcSrc = "../assets/TloStronyEGC.png";
   previousScrollPos = 5000;

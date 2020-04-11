@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material';
   styleUrls: ["./sign-up.component.scss"]
 })
 export class SignUPComponent implements OnInit {
-  @ViewChild("team", { read: ElementRef, static: false }) teamName: ElementRef;
+  @ViewChild("team", { read: ElementRef }) teamName: ElementRef;
   forms: FormGroup[] = [];
   formValid: boolean = false;
   team_Form: FormGroup;

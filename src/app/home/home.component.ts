@@ -17,7 +17,7 @@ import { Router } from "@angular/router";
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
   @ViewChild("canvas", { read: ElementRef, static: true }) canvas: ElementRef<HTMLCanvasElement>;
-  @ViewChild("signupbox", { read: ElementRef, static: false }) signupbox: ElementRef;
+  @ViewChild("signupbox", { read: ElementRef }) signupbox: ElementRef;
   private ctx: CanvasRenderingContext2D;
   previousScrollPos = 5000;
   scrollLock: boolean = false;
