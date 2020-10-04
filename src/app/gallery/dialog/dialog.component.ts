@@ -8,10 +8,14 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class DialogComponent implements OnInit {
   click: number = 0;
+  dialogRef: MatDialogRef<DialogComponent>
+
   constructor(
-    private dialogRef: MatDialogRef<DialogComponent>,
+    dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { img: string, imgArr: string[] }
-  ) { }
+  ) {
+    this.dialogRef = dialogRef
+  }
 
   ngOnInit() {
     document.addEventListener('click', e => {
@@ -20,7 +24,6 @@ export class DialogComponent implements OnInit {
     })
 
     document.addEventListener('keyup', e => {
-      console.log('swipe')
       if (e.keyCode == 37)
         this.swipeLeft()
       else if (e.keyCode == 39)
@@ -32,13 +35,13 @@ export class DialogComponent implements OnInit {
 
   }
 
-  private swipeLeft() {
+  swipeLeft() {
     let { img, imgArr } = this.data
     let index = imgArr.indexOf(img)
     this.data.img = imgArr[index - 1] ? imgArr[index - 1] : imgArr[index]
   }
 
-  private swipeRight() {
+  swipeRight() {
     let { img, imgArr } = this.data
     let index = imgArr.indexOf(img)
     this.data.img = imgArr[index + 1] ? imgArr[index + 1] : imgArr[index]

@@ -27,8 +27,12 @@ export class AppComponent
   bgcSrc = "../assets/TloStronyEGC.png";
   previousScrollPos = 5000;
   scrollLock: boolean = false;
-
-  constructor(private router: Router, private loginSv: LoginService) {
+  router: Router
+  constructor(
+    private loginSv: LoginService,
+    router: Router,
+  ) {
+    this.router = router
     this.fireUser$ = this.loginSv.islogged;
   }
 

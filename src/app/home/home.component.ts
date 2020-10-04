@@ -89,40 +89,11 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.canvas.nativeElement.width = innerWidth;
     this.canvas.nativeElement.height = innerHeight;
 
-    // 2 step-scrolling
-    // if (innerWidth > 1000)
-    //   document.addEventListener('scroll', this.two_step_scroll.bind(this, event))
   }
   ngOnDestroy() {
     // document.removeEventListener('scroll', this.two_step_scroll.bind(this, event))
   }
 
-  // private two_step_scroll(e) {
-  //   console.log('scroll')
-  //   if (!this.scrollLock) {
-  //     if (window.scrollY > this.previousScrollPos) {
-  //       window.scrollTo({
-  //         top: 1000,
-  //         behavior: 'smooth'
-  //       })
-  //       this.scrollLock = true
-  //       setTimeout(() => {
-  //         this.scrollLock = false
-  //       }, 500)
-  //     } else {
-  //       window.scrollTo({
-  //         top: 0,
-  //         behavior: 'smooth'
-  //       })
-  //       this.scrollLock = true
-  //       setTimeout(() => {
-  //         this.scrollLock = false
-  //       }, 500)
-
-  //     }
-  //   }
-  //   this.previousScrollPos = window.scrollY
-  // }
 
   wobble() {
     this.ctx = this.canvas.nativeElement.getContext("2d");

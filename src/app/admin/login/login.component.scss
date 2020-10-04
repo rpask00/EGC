@@ -6,7 +6,13 @@ form {
   transform: translateX(-50%);
   top: 30%;
   left: 50%;
+  background-color: #051627ea;
+  padding: 40px;
 
+  h1 {
+    color: aliceblue;
+    text-align: center;
+  }
 }
 
 .btn-box {
@@ -15,8 +21,8 @@ form {
   display: flex;
 }
 
-
 h2,
+input,
 p {
   color: white;
 

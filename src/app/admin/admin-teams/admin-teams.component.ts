@@ -20,6 +20,5 @@ export class AdminTeamsComponent implements OnInit {
 
   delete_team(team) {
     console.log(team)
-
   }
 }

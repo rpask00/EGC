@@ -146,7 +146,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyAeEBpoM9461GNYKmourCQa9-6xTeZibYA"
+      apiKey: "AIzaSyDNtLpeBuJr69aljVdfAanu9jKo9AGSg30"
     }),
     AllMaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),

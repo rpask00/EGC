@@ -32,8 +32,7 @@ fbAdmin.initializeApp({
     "token_uri": "https://oauth2.googleapis.com/token",
     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ri94t%40ezsat-b3013.iam.gserviceaccount.com"
-  }
-  ),
+  } ),
 });
 
 exports.storeImage = functions.https.onRequest((req, res) => {
@@ -77,7 +76,6 @@ exports.storeImage = functions.https.onRequest((req, res) => {
         .auth()
         .verifyIdToken(idToken)
         .then(decodedToken => {
-          console.log(uploadData.type);
           return storage
             .bucket('ezsat-b3013.appspot.com')
             .upload(uploadData.filePath, {
@@ -104,7 +102,6 @@ exports.storeImage = functions.https.onRequest((req, res) => {
           });
         })
         .catch(error => {
-          console.log(error);
           return res.status(401).json({ error: 'Unauthorized!' });
         });
     });

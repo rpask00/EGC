@@ -13,7 +13,6 @@ export class ScheduleService {
   ) { }
 
   add_match(match: Match) {
-    console.log(match)
     return this.db.list('/SCHEDULE').push(match)
   }
 
@@ -26,8 +25,6 @@ export class ScheduleService {
   }
 
   update_match(key: string, match: Match) {
-    console.log(match)
-    console.log(key)
     try {
       return this.db.object('/SCHEDULE/' + key).update(match)
 

@@ -41,7 +41,7 @@ export class SignUPComponent implements OnInit {
 
   ngOnInit() { }
 
-  getForm(e) {
+  getForm(e?) {
     if (e) this.forms[e.index] = e.form;
     this.formValid =
       !this.forms.map(form => form.valid).includes(false) &&

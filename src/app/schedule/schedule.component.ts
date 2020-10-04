@@ -38,7 +38,6 @@ export class ScheduleComponent implements OnInit {
         }).filter(m => !m.score_team_a && !m.score_team_b)
       })
     )
-    this.matches$.subscribe(r => console.log(r.length == 0))
 
     this.matches_ended$ = this.ScheduleSv.matches$.pipe(
       map(ms => {
