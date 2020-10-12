@@ -1,11 +1,9 @@
 import {
   Component,
-  AfterViewChecked,
   OnInit,
   ElementRef,
   ViewChild,
   NgZone,
-  OnDestroy
 } from "@angular/core";
 import { Wave, backGround, ColorRGB } from "../MODELS/wave.model";
 import { Router } from "@angular/router";
@@ -15,7 +13,7 @@ import { Router } from "@angular/router";
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"]
 })
-export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
+export class HomeComponent implements OnInit{
   @ViewChild("canvas", { read: ElementRef, static: true }) canvas: ElementRef<HTMLCanvasElement>;
   @ViewChild("signupbox", { read: ElementRef }) signupbox: ElementRef;
   private ctx: CanvasRenderingContext2D;
@@ -73,12 +71,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
 
     // bgcFolder.open()
   }
-  ngAfterViewChecked() {
-    // if (this.router.url != '/home') {
-    //   console.log('deded')
-    //   document.removeEventListener('scroll', this.two_step_scroll.bind(this, event))
-    // }
-  }
+
+
   ngOnInit() {
     this.animate.call(this);
     // this.drawImage()
@@ -90,10 +84,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.canvas.nativeElement.height = innerHeight;
 
   }
-  ngOnDestroy() {
-    // document.removeEventListener('scroll', this.two_step_scroll.bind(this, event))
-  }
-
+ 
 
   wobble() {
     this.ctx = this.canvas.nativeElement.getContext("2d");
@@ -109,11 +100,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
       );
     }
 
-    // this.ctx.strokeStyle = `hsla(
-    //   ${this.color.h * Math.sin(this.increment)},
-    //   ${this.color.s}%,
-    //   ${this.color.l}%,
-    //   ${this.color.a})`
 
     this.ctx.strokeStyle = `rgb(
         ${this.color.r * Math.sin(this.increment)},
