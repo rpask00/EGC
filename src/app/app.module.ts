@@ -155,10 +155,9 @@ const appRoutes: Routes = [
     AngularFireStorageModule,
     BrowserAnimationsModule,
 
-    RouterModule.forRoot(
-      appRoutes
-      // { enableTracing: true } // <-- debugging purposes only
-    )
+    RouterModule.forRoot(appRoutes
+// { enableTracing: true } // <-- debugging purposes only
+, { relativeLinkResolution: 'legacy' })
   ],
   providers: [
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }
