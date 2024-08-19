@@ -1,15 +1,8 @@
-import {
-  Component,
-  OnInit,
-  AfterViewChecked,
-  AfterContentChecked,
-  ViewChild,
-  ElementRef
-} from "@angular/core";
-import { slide } from "./route-animations";
-import { RouterOutlet, Router } from "@angular/router";
-import { LoginService } from "./SERVICES/login.service";
-import { Observable } from "rxjs";
+import {AfterContentChecked, AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from "@angular/core";
+import {slide} from "./route-animations";
+import {Router, RouterOutlet} from "@angular/router";
+import {LoginService} from "./SERVICES/login.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: "app-root",

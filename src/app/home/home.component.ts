@@ -1,12 +1,6 @@
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  ViewChild,
-  NgZone,
-} from "@angular/core";
-import { Wave, backGround, ColorRGB } from "../MODELS/wave.model";
-import { Router } from "@angular/router";
+import {Component, ElementRef, NgZone, OnInit, ViewChild,} from "@angular/core";
+import {backGround, ColorRGB, Wave} from "../MODELS/wave.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -84,7 +78,7 @@ export class HomeComponent implements OnInit{
     this.canvas.nativeElement.height = innerHeight;
 
   }
- 
+
 
   wobble() {
     this.ctx = this.canvas.nativeElement.getContext("2d");

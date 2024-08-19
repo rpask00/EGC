@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { NewsService } from "src/app/SERVICES/news.service";
-import { TimeService } from "src/app/SERVICES/time.service";
+import {Component, ElementRef, OnInit, ViewChild} from "@angular/core";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {NewsService} from "src/app/SERVICES/news.service";
+import {TimeService} from "src/app/SERVICES/time.service";
 
 @Component({
   selector: "admin-news",

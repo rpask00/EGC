@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LandscapeComponent } from './landscape.component';
+import {LandscapeComponent} from './landscape.component';
 
 describe('LandscapeComponent', () => {
   let component: LandscapeComponent;

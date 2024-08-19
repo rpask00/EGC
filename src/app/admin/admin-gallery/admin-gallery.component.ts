@@ -1,7 +1,7 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { ImageService } from "src/app/SERVICES/image.service";
-import { MatSnackBar } from "@angular/material";
+import {Component, OnInit} from "@angular/core";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {ImageService} from "src/app/SERVICES/image.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-admin-gallery",

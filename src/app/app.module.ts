@@ -1,41 +1,38 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule, enableProdMode } from "@angular/core";
-import { AppComponent } from "./app.component";
-import { AllMaterialModule } from "./all-material.module";
-import { HomeComponent } from "./home/home.component";
-import { InfoComponent } from "./info/info.component";
-import { NewsComponent } from "./news/news.component";
-import { ContactComponent } from "./contact/contact.component";
-import { RouterModule, Routes } from "@angular/router";
-import { AngularFireModule } from "@angular/fire";
-import { environment } from "src/environments/environment";
-import { AngularFireStorageModule } from "@angular/fire/storage";
-import { HttpClientModule } from "@angular/common/http";
-import { AngularFireDatabaseModule } from "@angular/fire/database";
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { GalleryComponent } from "./gallery/gallery.component";
-import { DialogComponent } from "./gallery/dialog/dialog.component";
-import {
-  MAT_DIALOG_DEFAULT_OPTIONS,
-  MAT_SNACK_BAR_DEFAULT_OPTIONS
-} from "@angular/material";
-import { LandscapeComponent } from "./gallery/landscape/landscape.component";
-import { ScheduleComponent } from "./schedule/schedule.component";
-import { AgmCoreModule } from "@agm/core";
-import { AdminComponent } from "./admin/admin.component";
-import { AdminNewsComponent } from "./admin/admin-news/admin-news.component";
-import { AdminGalleryComponent } from "./admin/admin-gallery/admin-gallery.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { SignUPComponent } from "./sign-up/sign-up.component";
-import { SignupFormComponent } from "./sign-up/signup-form/signup-form.component";
-import { SignupSuccedComponent } from "./sign-up/signup-succed/signup-succed.component";
-import { AboutUsComponent } from "./about-us/about-us.component";
-import { RoutesGuard } from "./guards/routes.guard";
-import { LoginComponent } from "./admin/login/login.component";
-import { AngularFireAuthModule } from "@angular/fire/auth";
-import { AdminScheduleComponent } from "./admin/admin-schedule/admin-schedule.component";
-import { AdminTeamsComponent } from './admin/admin-teams/admin-teams.component';
+import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from "@angular/core";
+import {AppComponent} from "./app.component";
+import {AllMaterialModule} from "./all-material.module";
+import {HomeComponent} from "./home/home.component";
+import {InfoComponent} from "./info/info.component";
+import {NewsComponent} from "./news/news.component";
+import {ContactComponent} from "./contact/contact.component";
+import {RouterModule, Routes} from "@angular/router";
+import {AngularFireModule} from "@angular/fire";
+import {environment} from "src/environments/environment";
+import {AngularFireStorageModule} from "@angular/fire/storage";
+import {HttpClientModule} from "@angular/common/http";
+import {AngularFireDatabaseModule} from "@angular/fire/database";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {GalleryComponent} from "./gallery/gallery.component";
+import {DialogComponent} from "./gallery/dialog/dialog.component";
+import {MAT_DIALOG_DEFAULT_OPTIONS} from "@angular/material/dialog";
+import {LandscapeComponent} from "./gallery/landscape/landscape.component";
+import {ScheduleComponent} from "./schedule/schedule.component";
+import {AgmCoreModule} from "@agm/core";
+import {AdminComponent} from "./admin/admin.component";
+import {AdminNewsComponent} from "./admin/admin-news/admin-news.component";
+import {AdminGalleryComponent} from "./admin/admin-gallery/admin-gallery.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {SignUPComponent} from "./sign-up/sign-up.component";
+import {SignupFormComponent} from "./sign-up/signup-form/signup-form.component";
+import {SignupSuccedComponent} from "./sign-up/signup-succed/signup-succed.component";
+import {AboutUsComponent} from "./about-us/about-us.component";
+import {RoutesGuard} from "./guards/routes.guard";
+import {LoginComponent} from "./admin/login/login.component";
+import {AngularFireAuthModule} from "@angular/fire/auth";
+import {AdminScheduleComponent} from "./admin/admin-schedule/admin-schedule.component";
+import {AdminTeamsComponent} from './admin/admin-teams/admin-teams.component';
 
 
 const appRoutes: Routes = [

@@ -1,13 +1,4 @@
-import {
-    trigger,
-    transition,
-    style,
-    query,
-    group,
-    animateChild,
-    animate,
-    keyframes,
-} from '@angular/animations';
+import {animate, group, keyframes, query, style, transition, trigger,} from '@angular/animations';
 
 
 // Basic

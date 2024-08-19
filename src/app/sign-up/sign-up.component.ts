@@ -1,9 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { TeamsService } from "../SERVICES/teams.service";
-import { Router } from "@angular/router";
-import { CustomValidator } from '../validators/custom-validators';
-import { MatDialog } from '@angular/material';
+import {Component, ElementRef, OnInit, ViewChild} from "@angular/core";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {TeamsService} from "../SERVICES/teams.service";
+import {Router} from "@angular/router";
+import {CustomValidator} from '../validators/custom-validators';
 
 @Component({
   selector: "app-sign-up",

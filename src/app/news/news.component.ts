@@ -1,17 +1,11 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  AfterViewChecked
-} from "@angular/core";
-import { ImageService } from "../SERVICES/image.service";
-import { Observable } from "rxjs";
-import { FormGroup, FormControl } from "@angular/forms";
-import { News } from "../MODELS/news.model";
-import { NewsService } from "../SERVICES/news.service";
-import { take } from "rxjs/operators";
-import { TimeService } from "../SERVICES/time.service";
+import {Component, OnInit} from "@angular/core";
+import {ImageService} from "../SERVICES/image.service";
+import {Observable} from "rxjs";
+import {FormControl, FormGroup} from "@angular/forms";
+import {News} from "../MODELS/news.model";
+import {NewsService} from "../SERVICES/news.service";
+import {take} from "rxjs/operators";
+import {TimeService} from "../SERVICES/time.service";
 
 @Component({
   selector: "app-news",

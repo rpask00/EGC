@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ImageService } from '../SERVICES/image.service';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ImageService} from '../SERVICES/image.service';
+import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-gallery',

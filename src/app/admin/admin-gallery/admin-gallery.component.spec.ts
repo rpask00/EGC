@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AdminGalleryComponent } from './admin-gallery.component';
+import {AdminGalleryComponent} from './admin-gallery.component';
 
 describe('AdminGalleryComponent', () => {
   let component: AdminGalleryComponent;

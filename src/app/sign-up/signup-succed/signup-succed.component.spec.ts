@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SignupSuccedComponent } from './signup-succed.component';
+import {SignupSuccedComponent} from './signup-succed.component';
 
 describe('SignupSuccedComponent', () => {
   let component: SignupSuccedComponent;

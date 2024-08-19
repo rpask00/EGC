@@ -1,6 +1,6 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 
-import { RoutesGuard } from './routes.guard';
+import {RoutesGuard} from './routes.guard';
 
 describe('RoutesGuard', () => {
   beforeEach(() => {

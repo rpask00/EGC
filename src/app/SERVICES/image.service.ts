@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Observable, forkJoin } from 'rxjs';
-import { AngularFireStorage } from '@angular/fire/storage';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { map, switchMap } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {forkJoin, Observable} from 'rxjs';
+import {AngularFireStorage} from '@angular/fire/storage';
+import {AngularFireDatabase} from '@angular/fire/database';
+import {map, switchMap} from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })

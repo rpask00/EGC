@@ -1,11 +1,11 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { Observable, forkJoin } from 'rxjs';
-import { MatDialog } from '@angular/material';
-import { ImageService } from 'src/app/SERVICES/image.service';
-import { DialogComponent } from '../dialog/dialog.component';
-import { ActivatedRoute } from '@angular/router';
-import { slidePhoto } from 'src/app/route-animations';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {MatDialog} from '@angular/material/dialog';
+import {ImageService} from 'src/app/SERVICES/image.service';
+import {DialogComponent} from '../dialog/dialog.component';
+import {ActivatedRoute} from '@angular/router';
+import {slidePhoto} from 'src/app/route-animations';
 
 @Component({
   selector: 'app-landscape',
