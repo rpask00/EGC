@@ -17,7 +17,6 @@ body {
   overflow-x: hidden;
 }
 
-
 .description {
   a {
     color: red;
@@ -26,13 +25,11 @@ body {
   a:visited {
     color: rgb(255, 255, 0);
   }
-
 }
 
 .colorFull {
   color: rgb(240, 44, 44);
 }
-
 
 /* width */
 ::-webkit-scrollbar {
@@ -57,10 +54,9 @@ body {
 }
 
 .dashboard {
-  background-color: rgba($color: #474747, $alpha: .9);
+  background-color: rgba($color: #474747, $alpha: 0.9);
   padding: 30px;
 }
-
 
 .red-dot {
   width: 10px;
@@ -69,7 +65,6 @@ body {
   border-radius: 50%;
   float: right;
 }
-
 
 .fonts {
   font-family: 'Montserrat', sans-serif;

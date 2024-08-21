@@ -1,25 +1,19 @@
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  ViewChild,
-  NgZone,
-} from "@angular/core";
-import { Wave, backGround, ColorRGB } from "../MODELS/wave.model";
-import { Router } from "@angular/router";
+import {Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
+import {backGround, ColorRGB, Wave} from '../MODELS/wave.model';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
-  @ViewChild("canvas", { read: ElementRef, static: true }) canvas: ElementRef<HTMLCanvasElement>;
-  @ViewChild("signupbox", { read: ElementRef }) signupbox: ElementRef;
+export class HomeComponent implements OnInit {
+  @ViewChild('canvas', {read: ElementRef, static: true}) canvas: ElementRef<HTMLCanvasElement>;
+  @ViewChild('signupbox', {read: ElementRef}) signupbox: ElementRef;
   private ctx: CanvasRenderingContext2D;
   previousScrollPos = 5000;
-  scrollLock: boolean = false;
-  amplidute: number = 0;
+  scrollLock = false;
+  amplidute = 0;
   gui;
 
   wave: Wave = {
@@ -44,7 +38,10 @@ export class HomeComponent implements OnInit{
   };
 
   increment: number;
-  constructor(private ngZone: NgZone, private router: Router) {
+  constructor(
+    private ngZone: NgZone,
+    private router: Router
+  ) {
     this.increment = this.wave.frequency;
     // this.gui = new dat.GUI();
     // const waveFolder = this.gui.addFolder('wave')
@@ -72,34 +69,27 @@ export class HomeComponent implements OnInit{
     // bgcFolder.open()
   }
 
-
   ngOnInit() {
     this.animate.call(this);
     // this.drawImage()
-    addEventListener("resize", () => {
+    addEventListener('resize', () => {
       this.canvas.nativeElement.width = innerWidth + 400;
       this.canvas.nativeElement.height = innerHeight;
     });
     this.canvas.nativeElement.width = innerWidth;
     this.canvas.nativeElement.height = innerHeight;
-
   }
- 
 
   wobble() {
-    this.ctx = this.canvas.nativeElement.getContext("2d");
+    this.ctx = this.canvas.nativeElement.getContext('2d');
     this.ctx.beginPath();
     this.ctx.moveTo(0, innerHeight / 2);
     for (let i = -100; i < innerWidth; i++) {
       this.ctx.lineTo(
         i,
-        this.wave.y +
-        Math.sin(i / this.wave.length + this.increment) *
-        this.wave.amplitude *
-        Math.sin(this.increment)
+        this.wave.y + Math.sin(i / this.wave.length + this.increment) * this.wave.amplitude * Math.sin(this.increment)
       );
     }
-
 
     this.ctx.strokeStyle = `rgb(
         ${this.color.r * Math.sin(this.increment)},
@@ -111,20 +101,14 @@ export class HomeComponent implements OnInit{
           ${this.backGround.r},
           ${this.backGround.g},
           ${this.backGround.b},
-          ${this.backGround.a * Math.abs(Math.sin(this.increment)) * 0.2 +
-      0.1})`;
+          ${this.backGround.a * Math.abs(Math.sin(this.increment)) * 0.2 + 0.1})`;
     this.ctx.stroke();
   }
 
   animate() {
-    this.ctx = this.canvas.nativeElement.getContext("2d");
+    this.ctx = this.canvas.nativeElement.getContext('2d');
     // this.drawImage()
-    this.ctx.fillRect(
-      0,
-      0,
-      this.canvas.nativeElement.width,
-      this.canvas.nativeElement.height
-    );
+    this.ctx.fillRect(0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
     this.ctx.fillStyle = `rgba(
       ${this.backGround.r},
       ${this.backGround.g},
@@ -138,8 +122,8 @@ export class HomeComponent implements OnInit{
 
   scroll() {
     this.signupbox.nativeElement.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
+      behavior: 'smooth',
+      block: 'center'
     });
   }
 }

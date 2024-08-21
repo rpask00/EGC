@@ -1,12 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { NewsService } from "src/app/SERVICES/news.service";
-import { TimeService } from "src/app/SERVICES/time.service";
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {NewsService} from 'src/app/SERVICES/news.service';
+import {TimeService} from 'src/app/SERVICES/time.service';
 
 @Component({
-  selector: "admin-news",
-  templateUrl: "./admin-news.component.html",
-  styleUrls: ["./admin-news.component.scss"]
+  selector: 'admin-news',
+  templateUrl: './admin-news.component.html',
+  styleUrls: ['./admin-news.component.scss']
 })
 export class AdminNewsComponent implements OnInit {
   today: Date = new Date();
@@ -14,39 +14,42 @@ export class AdminNewsComponent implements OnInit {
   form: FormGroup;
 
   csUrl =
-    "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/6d/6d448876809d7b79aa8f070271c07b1296459400_full.jpg";
+    'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/6d/6d448876809d7b79aa8f070271c07b1296459400_full.jpg';
   lolUrl =
-    "https://res.cloudinary.com/teepublic/image/private/s--SRABn1B---/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1539296610/production/designs/3303813_0.jpg";
+    'https://res.cloudinary.com/teepublic/image/private/s--SRABn1B---/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1539296610/production/designs/3303813_0.jpg';
 
-  @ViewChild("avatar", { read: ElementRef }) avatar: ElementRef;
+  @ViewChild('avatar', {read: ElementRef}) avatar: ElementRef;
 
-  constructor(private newsSrv: NewsService, private timeSrv: TimeService) {
+  constructor(
+    private newsSrv: NewsService,
+    private timeSrv: TimeService
+  ) {
     this.form = new FormGroup({
       title: new FormControl(null, {
-        updateOn: "change",
+        updateOn: 'change',
         validators: [Validators.required]
       }),
       desc: new FormControl(null, {
-        updateOn: "change",
+        updateOn: 'change',
         validators: [Validators.required]
       }),
-      game: new FormControl("cs", {
-        updateOn: "change",
+      game: new FormControl('cs', {
+        updateOn: 'change',
         validators: [Validators.required]
       }),
       image: new FormControl(null, {
-        updateOn: "change",
+        updateOn: 'change',
         validators: [Validators.required]
       })
     });
   }
 
-  toBase64 = file =>
+  toBase64 = (file) =>
     new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => resolve(reader.result);
-      reader.onerror = error => reject(error);
+      reader.onerror = (error) => reject(error);
     });
 
   ngOnInit() {}
@@ -56,8 +59,7 @@ export class AdminNewsComponent implements OnInit {
     this.form.value.image = e.target.files[0];
   }
   avatarImage() {
-    if (this.form.value.game == "cs")
-      this.avatar.nativeElement.src = this.csUrl;
+    if (this.form.value.game == 'cs') this.avatar.nativeElement.src = this.csUrl;
     else this.avatar.nativeElement.src = this.lolUrl;
   }
 
@@ -67,10 +69,10 @@ export class AdminNewsComponent implements OnInit {
         image: this.form.value.image,
         title: this.form.value.title,
         desc: this.form.value.desc,
-        game: this.form.value.game == "cs" ? this.csUrl : this.lolUrl,
+        game: this.form.value.game == 'cs' ? this.csUrl : this.lolUrl,
         date: this.today.getTime()
       })
-      .then(res => {
+      .then((res) => {
         this.form.reset();
         this.image = null;
       });

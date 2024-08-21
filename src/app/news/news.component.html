@@ -1,17 +1,16 @@
-<div class="container" *ngIf='news$ | async as news' #exampleCard>
-  <div class="main_news" *ngIf='example'>
-    <h1>{{example.title}}</h1>
-    <p class="date">{{timeSrv.getDate(example.date)}}</p>
-    <img *ngIf='example.image | async as img' [src]="img">
+<div class="container" *ngIf="news$ | async as news" #exampleCard>
+  <div class="main_news" *ngIf="example">
+    <h1>{{ example.title }}</h1>
+    <p class="date">{{ timeSrv.getDate(example.date) }}</p>
+    <img *ngIf="example.image | async as img" [src]="img"/>
 
-    <p class="description" innerHTML="{{example.desc}}"></p>
+    <p class="description" innerHTML="{{ example.desc }}"></p>
   </div>
   <div class="aside_news">
-    <div class="small_info_box" *ngFor='let new of news' (click)='changeExampleCard(new)'>
-      <h2>{{new.title}}</h2>
-      <p class="date">{{timeSrv.getDate(new.date)}}</p>
-      <img *ngIf='new.image | async as img' [src]="img">
+    <div class="small_info_box" *ngFor="let new of news" (click)="changeExampleCard(new)">
+      <h2>{{ new.title }}</h2>
+      <p class="date">{{ timeSrv.getDate(new.date) }}</p>
+      <img *ngIf="new.image | async as img" [src]="img"/>
     </div>
   </div>
 </div>
-

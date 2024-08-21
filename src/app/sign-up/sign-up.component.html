@@ -4,55 +4,55 @@
   <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Gracz 1">
       <div class="formBox">
-        <signup-form [index]='0' (sendForm)='getForm($event)'></signup-form>
+        <signup-form [index]="0" (sendForm)="getForm($event)"></signup-form>
       </div>
     </mat-tab>
     <mat-tab label="Gracz 2">
       <div class="formBox">
-        <signup-form [index]='1' (sendForm)='getForm($event)'></signup-form>
+        <signup-form [index]="1" (sendForm)="getForm($event)"></signup-form>
       </div>
     </mat-tab>
     <mat-tab label="Gracz 3 ">
       <div class="formBox">
-        <signup-form [index]='2' (sendForm)='getForm($event)'></signup-form>
+        <signup-form [index]="2" (sendForm)="getForm($event)"></signup-form>
       </div>
     </mat-tab>
     <mat-tab label="Gracz 4">
       <div class="formBox">
-        <signup-form [index]='3' (sendForm)='getForm($event)'></signup-form>
+        <signup-form [index]="3" (sendForm)="getForm($event)"></signup-form>
       </div>
     </mat-tab>
     <mat-tab label="Gracz 5">
       <div class="formBox">
-        <signup-form [index]='4' (sendForm)='getForm($event)'></signup-form>
+        <signup-form [index]="4" (sendForm)="getForm($event)"></signup-form>
       </div>
     </mat-tab>
   </mat-tab-group>
 
-  <div class='center'>
+  <div class="center">
     <form [formGroup]="team_Form">
-
       <div class="team-info">
-        <mat-form-field class='team'>
-          <input (keyup)='getForm()' matInput formControlName='team' #team placeholder="Nazwa drużyny">
+        <mat-form-field class="team">
+          <input (keyup)="getForm()" matInput formControlName="team" #team placeholder="Nazwa drużyny" />
         </mat-form-field>
 
         <div class="kontakt">
           <mat-form-field>
-            <input (keyup)='getForm()' matInput formControlName='phone' placeholder="Telefon">
+            <input (keyup)="getForm()" matInput formControlName="phone" placeholder="Telefon" />
           </mat-form-field>
 
           <mat-form-field>
-            <input (keyup)='getForm()' matInput type="email" formControlName='email' placeholder="e-mail">
+            <input (keyup)="getForm()" matInput type="email" formControlName="email" placeholder="e-mail" />
           </mat-form-field>
         </div>
       </div>
     </form>
     <div class="regulamin">
-      <mat-checkbox [(ngModel)]='checked' (change)='getForm()'>Akceptuję </mat-checkbox>
-      <a target='_blank'
-        href='https://drive.google.com/file/d/1oosp-CpCu89Nga_YQUCIjChTIuhfx77c/view?usp=sharing'>regulamin</a>
+      <mat-checkbox [(ngModel)]="checked" (change)="getForm()">Akceptuję </mat-checkbox>
+      <a target="_blank" href="https://drive.google.com/file/d/1oosp-CpCu89Nga_YQUCIjChTIuhfx77c/view?usp=sharing"
+        >regulamin</a
+      >
     </div>
-    <button [disabled]='!formValid ' color='primary' (click)='sign_up()' mat-raised-button>Zapisz</button>
+    <button [disabled]="!formValid" color="primary" (click)="sign_up()" mat-raised-button>Zapisz</button>
   </div>
 </div>

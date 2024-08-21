@@ -1,44 +1,49 @@
 <div class="container">
-  <div class="active" *ngIf='matches$ | async as matches'>
+  <div class="active" *ngIf="matches$ | async as matches">
     <h1>Nadchodzące / Na żywo</h1>
-    <h3 *ngIf='matches.length == 0 ; else matchbox'>Już wkrótce...</h3>
+    <h3 *ngIf="matches.length == 0; else matchbox">Już wkrótce...</h3>
     <ng-template #matchbox>
-      <div class="match-box" *ngFor='let m of matches'>
-        <h2> {{m.status}}</h2>
+      <div class="match-box" *ngFor="let m of matches">
+        <h2>{{ m.status }}</h2>
         <div class="info">
-          <div class="live" *ngIf='m.live'>
-            <p> <span class="red-dot"></span><a target="_blank" href="https://confused-travolta.herokuapp.com">Live</a>
+          <div class="live" *ngIf="m.live">
+            <p>
+              <span class="red-dot"></span><a target="_blank" href="https://confused-travolta.herokuapp.com">Live</a>
             </p>
           </div>
-          <p class="team">{{m.team_a}}</p>
+          <p class="team">{{ m.team_a }}</p>
           <div class="date-box">
-            <div class="date">{{m.date.getDate()}}/{{m.date.getMonth() +1 }}/{{m.date.getFullYear()}}
-              <span class="hour">{{m.time}}</span>
+            <div class="date">
+              {{ m.date.getDate() }}/{{ m.date.getMonth() + 1 }}/{{ m.date.getFullYear() }}
+              <span class="hour">{{ m.time }}</span>
             </div>
-            <div class="format">{{m.format}}</div>
+            <div class="format">{{ m.format }}</div>
           </div>
-          <p class="team">{{m.team_b}}</p>
+          <p class="team">{{ m.team_b }}</p>
         </div>
       </div>
     </ng-template>
   </div>
 
-  <div class="ended" *ngIf='matches_ended$ | async as matches'>
+  <div class="ended" *ngIf="matches_ended$ | async as matches">
     <h1>Zakończone</h1>
-    <div class="match-box" *ngFor='let m of matches'>
-      <h2> {{m.status}}</h2>
+    <div class="match-box" *ngFor="let m of matches">
+      <h2>{{ m.status }}</h2>
       <div class="info">
-        <p [ngClass]="{'team': true, 'winner': m.score_team_b < m.score_team_a}">{{m.team_a}}
-          <span class="result">{{m.score_team_a}} </span>
+        <p [ngClass]="{'team': true, 'winner': m.score_team_b < m.score_team_a}">
+          {{ m.team_a }}
+          <span class="result">{{ m.score_team_a }} </span>
         </p>
         <div class="date-box">
-          <div class="date">{{m.date.getDate()}}/{{m.date.getMonth() +1 }}/{{m.date.getFullYear()}}
-            <span class="hour">{{m.time}}</span>
+          <div class="date">
+            {{ m.date.getDate() }}/{{ m.date.getMonth() + 1 }}/{{ m.date.getFullYear() }}
+            <span class="hour">{{ m.time }}</span>
           </div>
-          <div class="format">{{m.format}}</div>
+          <div class="format">{{ m.format }}</div>
         </div>
         <p [ngClass]="{'team': true, 'winner': m.score_team_b > m.score_team_a}">
-          <span class=" result">{{m.score_team_b}}</span>{{m.team_b}}
+          <span class="result">{{ m.score_team_b }}</span
+          >{{ m.team_b }}
         </p>
       </div>
     </div>

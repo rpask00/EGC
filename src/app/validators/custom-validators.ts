@@ -1,20 +1,18 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import {AbstractControl, ValidationErrors} from '@angular/forms';
 
 export class CustomValidator {
-    static onlyNumbers(control: AbstractControl): ValidationErrors | null {
-        if (control.value) {
-            var x = control.value
+  static onlyNumbers(control: AbstractControl): ValidationErrors | null {
+    if (control.value) {
+      const x = control.value;
 
-            const regex = /[0-9]| /g;
-            const nospace = /[0-9]/g;
+      const regex = /[0-9]| /g;
+      const nospace = /[0-9]/g;
 
-            let res = x.match(regex) || []
-            let resnospace = x.match(nospace) || []
+      const res = x.match(regex) || [];
+      const resnospace = x.match(nospace) || [];
 
-
-            let test = res.join('') == x && resnospace.length == 9
-            return !test ? { 'forbiddenName': { value: control.value } } : null;
-        }
+      const test = res.join('') == x && resnospace.length == 9;
+      return !test ? {forbiddenName: {value: control.value}} : null;
     }
-
+  }
 }

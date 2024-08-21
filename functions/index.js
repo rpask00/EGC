@@ -1,6 +1,5 @@
-
 const functions = require('firebase-functions');
-const cors = require('cors')({ origin: true });
+const cors = require('cors')({origin: true});
 const Busboy = require('busboy');
 const os = require('os');
 const path = require('path');
@@ -9,10 +8,9 @@ const uuid = require('uuid/v4');
 const fbAdmin = require('firebase-admin');
 const nodemailer = require('nodemailer');
 
+exports.sendMail = functions.https.onRequest((request, responde) => {});
 
-exports.sendMail = functions.https.onRequest((request, responde) => { });
-
-const { Storage } = require('@google-cloud/storage');
+const {Storage} = require('@google-cloud/storage');
 
 const storage = new Storage({
   projectId: 'ezsat-b3013'
@@ -21,34 +19,29 @@ const storage = new Storage({
 // var serviceAccount = require("path/to/ezsat-b3013-firebase-adminsdk-ri94t-71c258f147.json");
 
 fbAdmin.initializeApp({
-  credential: fbAdmin.credential.cert({
-    
-  }),
+  credential: fbAdmin.credential.cert({})
 });
 
 exports.storeImage = functions.https.onRequest((req, res) => {
   return cors(req, res, () => {
     if (req.method !== 'POST') {
-      return res.status(500).json({ message: 'Not allowed.' });
+      return res.status(500).json({message: 'Not allowed.'});
     }
 
-    if (
-      !req.headers.authorization ||
-      !req.headers.authorization.startsWith('Bearer ')
-    ) {
-      return res.status(401).json({ error: 'Unauthorized!' });
+    if (!req.headers.authorization || !req.headers.authorization.startsWith('Bearer ')) {
+      return res.status(401).json({error: 'Unauthorized!'});
     }
 
     let idToken;
     idToken = req.headers.authorization.split('Bearer ')[1];
 
-    const busboy = new Busboy({ headers: req.headers });
+    const busboy = new Busboy({headers: req.headers});
     let uploadData;
     let oldImagePath;
 
     busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
       const filePath = path.join(os.tmpdir(), filename);
-      uploadData = { filePath: filePath, type: mimetype, name: filename };
+      uploadData = {filePath: filePath, type: mimetype, name: filename};
       file.pipe(fs.createWriteStream(filePath));
     });
 
@@ -66,19 +59,17 @@ exports.storeImage = functions.https.onRequest((req, res) => {
       return fbAdmin
         .auth()
         .verifyIdToken(idToken)
-        .then(decodedToken => {
-          return storage
-            .bucket('ezsat-b3013.appspot.com')
-            .upload(uploadData.filePath, {
-              uploadType: 'media',
-              destination: imagePath,
+        .then((decodedToken) => {
+          return storage.bucket('ezsat-b3013.appspot.com').upload(uploadData.filePath, {
+            uploadType: 'media',
+            destination: imagePath,
+            metadata: {
               metadata: {
-                metadata: {
-                  contentType: uploadData.type,
-                  firebaseStorageDownloadTokens: id
-                }
+                contentType: uploadData.type,
+                firebaseStorageDownloadTokens: id
               }
-            });
+            }
+          });
         })
         .then(() => {
           return res.status(201).json({
@@ -92,11 +83,10 @@ exports.storeImage = functions.https.onRequest((req, res) => {
             imagePath: imagePath
           });
         })
-        .catch(error => {
-          return res.status(401).json({ error: 'Unauthorized!' });
+        .catch((error) => {
+          return res.status(401).json({error: 'Unauthorized!'});
         });
     });
     return busboy.end(req.rawBody);
   });
 });
-

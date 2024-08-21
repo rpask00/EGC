@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {AngularFireDatabase} from '@angular/fire/database';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'admin-teams',
@@ -8,17 +8,14 @@ import { Observable } from 'rxjs';
   styleUrls: ['./admin-teams.component.scss']
 })
 export class AdminTeamsComponent implements OnInit {
-
-  teams$: Observable<any>
-  constructor(
-    private db: AngularFireDatabase
-  ) { }
+  teams$: Observable<any>;
+  constructor(private db: AngularFireDatabase) {}
 
   ngOnInit() {
-    this.teams$ = this.db.list('/teams').valueChanges()
+    this.teams$ = this.db.list('/teams').valueChanges();
   }
 
   delete_team(team) {
-    console.log(team)
+    console.log(team);
   }
 }

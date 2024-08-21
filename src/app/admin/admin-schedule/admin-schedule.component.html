@@ -1,22 +1,22 @@
 <form class="dashboard" [formGroup]="form">
   <h1>Zarządzaj meczem</h1>
   <mat-form-field>
-    <input matInput formControlName='status' type="text" #txt placeholder='Status'>
+    <input matInput formControlName="status" type="text" #txt placeholder="Status" />
   </mat-form-field>
   <div class="fulllength">
-    <mat-form-field class='team'>
-      <input matInput formControlName='team_a' type="text" #txt placeholder='Team A'>
+    <mat-form-field class="team">
+      <input matInput formControlName="team_a" type="text" #txt placeholder="Team A" />
     </mat-form-field>
     <mat-form-field>
-      <input class='score' matInput formControlName='score_team_a' type="text" #txt placeholder='Wynik'>
+      <input class="score" matInput formControlName="score_team_a" type="text" #txt placeholder="Wynik" />
     </mat-form-field>
   </div>
   <div class="fulllength">
-    <mat-form-field class='team'>
-      <input matInput formControlName='team_b' type="text" #txt placeholder='Team B'>
+    <mat-form-field class="team">
+      <input matInput formControlName="team_b" type="text" #txt placeholder="Team B" />
     </mat-form-field>
     <mat-form-field>
-      <input class='score' matInput formControlName='score_team_b' type="text" #txt placeholder='Wynik'>
+      <input class="score" matInput formControlName="score_team_b" type="text" #txt placeholder="Wynik" />
     </mat-form-field>
   </div>
   <!-- <mat-form-field>
@@ -25,37 +25,36 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field> -->
   <mat-form-field>
-    <input matInput type="datetime-local" #txt placeholder="Data" formControlName='date'>
+    <input matInput type="datetime-local" #txt placeholder="Data" formControlName="date" />
   </mat-form-field>
 
   <!-- <mat-form-field>
     <input matInput formControlName='time' type="text" #txt placeholder='Godzina'>
   </mat-form-field> -->
-  <div class='row'>
-
-    <mat-radio-group aria-label="Select an option" formControlName='format'>
-      <mat-radio-button class='radio' value="bo1">bo1</mat-radio-button>
-      <mat-radio-button class='radio' value="bo3">bo3</mat-radio-button>
-      <mat-radio-button class='radio' value="bo5">bo5</mat-radio-button>
+  <div class="row">
+    <mat-radio-group aria-label="Select an option" formControlName="format">
+      <mat-radio-button class="radio" value="bo1">bo1</mat-radio-button>
+      <mat-radio-button class="radio" value="bo3">bo3</mat-radio-button>
+      <mat-radio-button class="radio" value="bo5">bo5</mat-radio-button>
     </mat-radio-group>
 
-    <mat-checkbox class="check" formControlName='live'>Live</mat-checkbox>
+    <mat-checkbox class="check" formControlName="live">Live</mat-checkbox>
   </div>
 
-  <button [disabled]='form.invalid' mat-raised-button (click)='upload()'>Zatwierdź</button>
+  <button [disabled]="form.invalid" mat-raised-button (click)="upload()">Zatwierdź</button>
 
-  <div class="matches" *ngIf='matches_payload$ | async as matches'>
-    <div class="matchbox dashboard" *ngFor='let m of matches'>
-      <p><b>Status</b>: {{m.payload.val().status}}
-        <span *ngIf='m.payload.val().live' class="red-dot"></span>
+  <div class="matches" *ngIf="matches_payload$ | async as matches">
+    <div class="matchbox dashboard" *ngFor="let m of matches">
+      <p>
+        <b>Status</b>: {{ m.payload.val().status }}
+        <span *ngIf="m.payload.val().live" class="red-dot"></span>
       </p>
-      <p><b>Team A</b>: {{m.payload.val().team_a}}</p>
-      <p><b>Team B</b>: {{m.payload.val().team_b}}</p>
-      <p><b>Wynik A</b>: {{m.payload.val().score_team_a ? m.payload.val().score_team_a :'-' }}</p>
-      <p><b>Wynik B</b>: {{m.payload.val().score_team_b ? m.payload.val().score_team_b :'-' }}</p>
-      <p><b>Data</b>: {{m.payload.val().date}}</p>
-      <button (click)='edit(m)' mat-raised-button color='primary'>Edytuj</button>
+      <p><b>Team A</b>: {{ m.payload.val().team_a }}</p>
+      <p><b>Team B</b>: {{ m.payload.val().team_b }}</p>
+      <p><b>Wynik A</b>: {{ m.payload.val().score_team_a ? m.payload.val().score_team_a : '-' }}</p>
+      <p><b>Wynik B</b>: {{ m.payload.val().score_team_b ? m.payload.val().score_team_b : '-' }}</p>
+      <p><b>Data</b>: {{ m.payload.val().date }}</p>
+      <button (click)="edit(m)" mat-raised-button color="primary">Edytuj</button>
     </div>
   </div>
-
 </form>

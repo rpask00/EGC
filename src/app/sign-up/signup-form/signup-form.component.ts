@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'signup-form',
@@ -7,10 +7,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./signup-form.component.scss']
 })
 export class SignupFormComponent implements OnInit {
-
-  @Output('sendForm') sendForm: EventEmitter<{ index: number, form: FormGroup }> = new EventEmitter();
+  @Output('sendForm') sendForm: EventEmitter<{index: number; form: FormGroup}> = new EventEmitter();
   @Input('index') index: number;
-  form: FormGroup
+  form: FormGroup;
   constructor() {
     this.form = new FormGroup({
       imie: new FormControl(null, {
@@ -29,14 +28,12 @@ export class SignupFormComponent implements OnInit {
         updateOn: 'change',
         validators: [Validators.required]
       })
-
-    })
+    });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   updateForm() {
-    this.sendForm.emit({ index: this.index, form: this.form })
+    this.sendForm.emit({index: this.index, form: this.form});
   }
-
 }

@@ -1,7 +1,14 @@
-<form [formGroup]="form" class='dashboard'>
-  <input formControlName='images' class='file' type="file" (change)="saveImagses($event.target.files)" multiple #input>
+<form [formGroup]="form" class="dashboard">
+  <input
+    formControlName="images"
+    class="file"
+    type="file"
+    (change)="saveImagses($event.target.files)"
+    multiple
+    #input
+  />
   <mat-form-field>
-    <input matInput formControlName='title' type="text" #txt placeholder='Nazwa folderu'>
+    <input matInput formControlName="title" type="text" #txt placeholder="Nazwa folderu" />
   </mat-form-field>
-  <button [disabled]='!form.valid' mat-raised-button (click)='upload()'>Dodaj folder zdjęć</button>
+  <button [disabled]="!form.valid" mat-raised-button (click)="upload()">Dodaj folder zdjęć</button>
 </form>

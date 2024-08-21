@@ -9,10 +9,8 @@
 h1 {
   font-size: 46px;
   text-align: center;
-  color: #EFAA54;
-  font-family: 'Alatsi',
-    sans-serif;
-
+  color: #efaa54;
+  font-family: 'Alatsi', sans-serif;
 }
 
 p {
@@ -21,12 +19,10 @@ p {
   letter-spacing: 5px;
   line-height: 45px;
   text-align: justify;
-  font-family: 'Dosis',
-    sans-serif;
+  font-family: 'Dosis', sans-serif;
 }
 
-@media only screen and (max-width:900px) {
-
+@media only screen and (max-width: 900px) {
   .container {
     padding: 15px;
     margin-bottom: 50px;

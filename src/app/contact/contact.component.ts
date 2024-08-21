@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -6,14 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
+  texto = 'Wenceslau Braz - Cuidado com as cargas';
+  lat = 50.05345156644511;
+  lng = 21.615080465560913;
+  zoom = 12;
 
-  texto: string = 'Wenceslau Braz - Cuidado com as cargas';
-  lat: number = 50.05345156644511;
-  lng: number = 21.615080465560913;
-  zoom: number = 12;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() { }
-
+  ngOnInit() {}
 }

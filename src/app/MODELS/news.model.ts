@@ -1,17 +1,17 @@
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
 
 export interface News {
-    image: string | File | Observable<string>,
-    title: string,
-    desc: string,
-    game: string,
-    date: number,
+  image: string | File | Observable<string>;
+  title: string;
+  desc: string;
+  game: string;
+  date: number;
 }
 
 export interface Match {
-    team_a: string,
-    team_b: string,
-    time: string,
-    date: string,
-    format: string,
+  team_a: string;
+  team_b: string;
+  time: string;
+  date: string;
+  format: string;
 }

@@ -1,21 +1,15 @@
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import {Injectable} from '@angular/core';
+import {AngularFireDatabase} from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamsService {
+  constructor(private db: AngularFireDatabase) {}
 
-  constructor(
-    private db: AngularFireDatabase
-  ) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   sing_up_team(team) {
-    this.db.list('teams').push(team)
+    this.db.list('teams').push(team);
   }
-
-
 }

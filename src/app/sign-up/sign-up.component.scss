@@ -1,7 +1,7 @@
 .container {
   flex-direction: column;
   width: 45vw;
-  background-color: rgba($color: rgb(6, 20, 39), $alpha: .99);
+  background-color: rgba($color: rgb(6, 20, 39), $alpha: 0.99);
   margin: auto;
   padding: 30px;
   margin-top: 30px;
@@ -17,7 +17,6 @@
 
 form {
   width: 85%;
-
 }
 
 .center {
@@ -38,8 +37,7 @@ form {
       color: rgb(218, 55, 82);
     }
 
-    font-family: 'Montserrat',
-    sans-serif;
+    font-family: 'Montserrat', sans-serif;
     // font-family: 'Poppins', sans-serif;
     // font-family: 'PT Sans', sans-serif;
     // font-family: 'Muli', sans-serif;
@@ -51,10 +49,6 @@ form {
     // font-family: 'Varela Round', sans-serif;
     // font-family: 'Noto Sans TC', sans-serif;
   }
-
-
-
-
 }
 
 .team-info {
@@ -91,14 +85,13 @@ input {
 }
 
 @media only screen and (max-width: 900px) {
-
   .container {
     height: 95vh;
     min-height: 640px;
     width: 90vw;
     padding: 10px 10px 30px 10px;
     margin: 0 auto 50px auto;
-    transform: scale(.9);
+    transform: scale(0.9);
 
     .team {
       flex-wrap: wrap;
@@ -110,9 +103,5 @@ input {
         width: 100%;
       }
     }
-
   }
-
-
-
 }

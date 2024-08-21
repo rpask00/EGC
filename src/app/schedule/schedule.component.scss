@@ -11,19 +11,16 @@
   h3 {
     text-align: center;
     color: rgba(245, 245, 245, 0.517);
-    font-family: 'Alatsi',
-      sans-serif;
+    font-family: 'Alatsi', sans-serif;
     letter-spacing: 13px;
     margin-top: 40px;
   }
-
 }
 
 h1 {
   text-align: center;
   color: whitesmoke;
-  font-family: 'Alatsi',
-    sans-serif;
+  font-family: 'Alatsi', sans-serif;
 }
 
 .active {
@@ -33,18 +30,15 @@ h1 {
   padding: 30px;
 
   .match-box {
-    border: 2px solid #DF8D26;
+    border: 2px solid #df8d26;
     border-radius: 2px;
 
     h2 {
       background-color: #051627ea;
-      color: #EFAA54;
-
+      color: #efaa54;
     }
 
     .info {
-
-
       .team {
         color: white;
       }
@@ -54,7 +48,6 @@ h1 {
       }
     }
   }
-
 }
 
 .ended {
@@ -64,17 +57,14 @@ h1 {
 
   .match-box {
     border: 2px solid gainsboro;
-    opacity: .5;
+    opacity: 0.5;
 
     h2 {
       background-color: #051627ea;
       color: gray;
-
     }
 
     .info {
-
-
       .team {
         color: red;
 
@@ -87,13 +77,11 @@ h1 {
         color: green;
       }
 
-
       .date {
         color: white;
       }
     }
   }
-
 }
 
 .match-box {
@@ -161,7 +149,7 @@ h1 {
       }
 
       .hour {
-        color: #DEB78D
+        color: #deb78d;
       }
 
       .format {
@@ -175,7 +163,6 @@ h1 {
   }
 }
 
-
 @media only screen and (max-width: 1000px) {
   .container {
     padding: 0;
@@ -187,7 +174,6 @@ h1 {
     margin-right: 0;
     margin-top: 10px;
     margin-bottom: 10px;
-
   }
 
   .ended {
@@ -217,7 +203,6 @@ h1 {
           span {
             margin-right: 5px;
           }
-
         }
       }
 
@@ -241,7 +226,7 @@ h1 {
         }
 
         .hour {
-          color: #DEB78D
+          color: #deb78d;
         }
 
         .format {
@@ -254,5 +239,4 @@ h1 {
       }
     }
   }
-
 }

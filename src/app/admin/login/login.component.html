@@ -1,10 +1,10 @@
-<form class='center' #f='ngForm' (ngSubmit)='log_ig($event)'>
+<form class="center" #f="ngForm" (ngSubmit)="log_ig($event)">
   <h1>Logowanie do panelu admina</h1>
   <mat-form-field>
-    <input matInput placeholder="Email" class="email">
+    <input matInput placeholder="Email" class="email" />
   </mat-form-field>
   <mat-form-field>
-    <input matInput type='password' placeholder="Haslo" class="password">
+    <input matInput type="password" placeholder="Haslo" class="password" />
   </mat-form-field>
-  <button type='submit' mat-raised-button color="primary">Autoryzuj</button>
+  <button type="submit" mat-raised-button color="primary">Autoryzuj</button>
 </form>

@@ -6,8 +6,7 @@ h1 {
   color: white;
   text-align: center;
   font-size: 40px;
-  font-family: 'Poppins',
-    sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .map {
@@ -23,19 +22,14 @@ h1 {
 }
 
 h4 {
-  font-family: 'Heebo',
-    sans-serif;
+  font-family: 'Heebo', sans-serif;
   color: whitesmoke;
   text-align: center;
   margin-top: 70vh;
 }
 
-
 @media only screen and (max-width: 900px) {
-
   h1 {
     font-size: 30px;
-
   }
-
 }

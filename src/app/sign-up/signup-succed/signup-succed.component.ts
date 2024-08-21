@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-signup-succed',
@@ -7,15 +7,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./signup-succed.component.scss']
 })
 export class SignupSuccedComponent implements OnInit {
+  team: String;
 
-  team: String
-
-  constructor(
-    private acRoute: ActivatedRoute
-  ) { }
+  constructor(private acRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.team = this.acRoute.snapshot.paramMap.get('team')
+    this.team = this.acRoute.snapshot.paramMap.get('team');
   }
-
 }
