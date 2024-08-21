@@ -12,6 +12,7 @@
 
 /src/environments/environment.ts
 /src/environments/environment.prod.ts
+/src/environments/firebase.config.ts
 
 
 # profiling files
@@ -49,3 +50,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+
